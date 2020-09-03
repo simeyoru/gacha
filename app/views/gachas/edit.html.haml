@@ -1,0 +1,42 @@
+.result_form
+  .result_form__header
+    GachaSimulator2020
+  .result_form__1
+    %input.data{:class=>"data", :type=>"hidden" , :name=>"data", :value=>@val}
+  .result_form__2
+    result<br>
+  :javascript
+    $(function(){
+      var val=$(".data").val();
+          ssr = 0
+          ssr1 = 0
+          sr = 0
+          r = 0
+          money = val / 250
+          console.log(money)
+        for (let time = 0; time < money; time++) {
+          rarity =  Math.random()*100 ;  //1~100の範囲でランダムに数字を取得
+            if(rarity <= 0.5){
+                ssr1 = ssr1 + 1
+                console.log(rarity)               
+            }else if (rarity <= 3){                       //確率３%
+                ssr = ssr + 1
+            }else if (rarity <= 18){                //確率１５％
+                sr = sr + 1
+            }else{                                  //確率８２％
+                r = r + 1
+            }
+        }
+        //ガチャ結果の表示
+        $('.result_form__2').append("SSR:" + ssr + "<br>\n"); 
+        $('.result_form__2').append("狙っているキャラ:" + ssr1 + "<br>\n"); 
+        $('.result_form__2').append("SR:" + sr + "<br>\n"); 
+        $('.result_form__2').append("R:" + r + "<br>\n"); 
+        $('.result_form__2').append("確率" + "<br>\n"); 
+        $('.result_form__2').append("あなたの狙うキャラは"+val+"円で"+money+"回引いて"+ssr1+"体出ました！"); 
+      })    
+  .result_form__back
+    %a{href: 'http://localhost:3000/gachas'} ガチャ回数入力に戻る<br>
+    %a{href: 'http://localhost:3000'} トップに戻る
+  .result_form__footer
+    GachaSimulator2020

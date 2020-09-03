@@ -1,0 +1,52 @@
+.gacha_main{
+  background-color: #99FFFF;
+  width: 100vw;
+  height: 100vh;
+  &__header{
+    font-weight: bold;
+    font-size: 35px;
+    text-decoration:underline;
+  }
+  &__form{
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px 30px;
+    background: rgba(0,0,0,0.4);
+    color: #fff;
+    text-align: center;
+    font-size: 30px;
+    width: 540px;
+  }
+  &__footer{
+    text-align: center;
+    margin-top: 400px;
+  }
+}
+.result_form{
+  background-color: #99FFFF;
+  width: 100vw;
+  height: 100vh;
+  &__header{
+    font-weight: bold;
+    font-size: 35px;
+    text-decoration:underline;
+  }
+  &__1{
+    display: none;
+  }
+  &__2{
+    text-align: center; 
+    font-size: 25px;
+  }
+  &__back{
+    text-align: center; 
+    padding-top: 10px;
+    font-size: 20px;
+  }
+  &__footer{
+    text-align: center;
+    padding-top: 20px;
+  }
+}

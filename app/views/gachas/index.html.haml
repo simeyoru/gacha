@@ -1,0 +1,15 @@
+.gacha_main
+  .gacha_main__header
+    GachaSimulator2020
+  .gacha_main__form
+    %p ようこそ!ガチャシミュレーションへ
+    %p たくさん回したい方は①のリンクへ
+    %p 金額に応じて回したい方は②のリンクへ
+    ①
+    = link_to  "/gachas/new" ,method: :get do
+      気にせずガチャ<br>
+    ②
+    = link_to "/gachas" do
+      課金額ガチャ
+  .gacha_main__footer
+    GachaSimulator2020
