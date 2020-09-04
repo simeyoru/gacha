@@ -3,9 +3,30 @@
   width: 100vw;
   height: 100vh;
   &__header{
-    font-weight: bold;
+    border-bottom: 5px solid red;
+    padding-bottom: 15px; 
     font-size: 35px;
-    text-decoration:underline;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bolder;
+    padding-top: 20px;
+  &__edit
+  .btn--orange,
+  a.btn--orange {
+    font-weight: initial;
+    text-decoration: initial;
+    color: #fff;
+    background-color: rgb(255, 47, 151);
+    margin:6px 10px 0px 0px;
+    font-size: 25px;
+    height: 40px;
+    padding: 5px;
+  }
+  .btn--orange:hover,
+  a.btn--orange:hover {
+    color: #fff;
+    background: #0004f5;
+}
   }
   &__form{
     position: absolute;
@@ -17,11 +38,27 @@
     color: #fff;
     text-align: center;
     font-size: 30px;
-    width: 540px;
+    width: 570px;
+    a:hover {color:yellow;}
+    .send-btn{
+      hover {color:yellow;}
+    }
+  }
+  &__back{
+    text-align: center; 
+    padding-top: 300px;
+    font-size: 20px;
+    a:hover {color:yellow;}
   }
   &__footer{
     text-align: center;
-    margin-top: 400px;
+    padding-top: 20px;
+    font-size: 20px;
+  }
+  &__footer-center{
+    text-align: center;
+    padding-top: 365px;
+    font-size: 20px;
   }
 }
 .result_form{
@@ -29,9 +66,28 @@
   width: 100vw;
   height: 100vh;
   &__header{
-    font-weight: bold;
+    border-bottom: 5px solid red;
+    padding-bottom: 15px; 
     font-size: 35px;
-    text-decoration:underline;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bolder;
+    padding-top: 20px;
+      .btn--orange,
+      a.btn--orange {
+        font-weight: initial;
+        text-decoration: initial;
+        color: #fff;
+        background-color:  rgb(255, 47, 151);
+        margin:6px 10px 0px 0px;
+        font-size: 25px;
+        height: 40px;
+      }
+      .btn--orange:hover,
+      a.btn--orange:hover {
+        color: #fff;
+        background:  #0004f5;
+    }
   }
   &__1{
     display: none;
@@ -44,9 +100,11 @@
     text-align: center; 
     padding-top: 10px;
     font-size: 20px;
+    a:hover {color:yellow;}
   }
   &__footer{
     text-align: center;
     padding-top: 20px;
+    font-size: 20px;
   }
 }
