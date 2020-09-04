@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :users
   root "gachas#index"
-  resource :gachas, only: [:index, :create, :show, :new]
-  post  "/gachas/edit"  => "gachas#edit"
+  resources :gachas, only: [:index]
+  post  "/gachas/edit" ,to: "gachas#edit"
+  resources :users, only: [:edit, :update]
+  get  "/gachas/form/:id" ,to: "gachas#form",as: "form"
+  post  "/gachas/result/:id" ,to: "gachas#result",as: "result"
 end

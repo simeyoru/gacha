@@ -1,15 +1,18 @@
 .gacha_main
   .gacha_main__header
     GachaSimulator2020
+    .gacha_main__edit
+      = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn btn--orange'
+      = link_to "ユーザー情報編集", edit_user_path(current_user) ,class: 'btn btn--orange'
   .gacha_main__form
     %p ようこそ!ガチャシミュレーションへ
     %p たくさん回したい方は①のリンクへ
     %p 金額に応じて回したい方は②のリンクへ
     ①
-    = link_to  "/gachas/new" ,method: :get do
+    = link_to form_path(1)  do
       気にせずガチャ<br>
     ②
-    = link_to "/gachas" do
+    = link_to form_path(2)  do
       課金額ガチャ
-  .gacha_main__footer
+  .gacha_main__footer-center
     GachaSimulator2020
