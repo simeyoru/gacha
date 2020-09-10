@@ -1,11 +1,17 @@
 .AccountPage {
+  height: 90vh;
+  width: 100%;
+  //margin: auto;
+  padding: 60px 0px 0 60px;
   background-color: #99FFFF;
-  height: 100%;
-  padding: 60px 60px 206px 60px ;
-  justify-content: space-between;
+  //border: 1px solid #ddd;
+  //border-radius: 5px;
+  display: flex;
+  //justify-content: space-between;
+  //background-color: rgba(255,255,255,0.6);
 }
 .AccountPage__title {
-  width: 50%;
+  width: 40%;
   font-size: 14px;
   font-weight: 200;
 
@@ -23,9 +29,14 @@
   }
 
   .Button {
+    font-size: 20px;
     margin-top: 40px;
     color: #fff;
-    background-color: #ccc;
+    background-color: #dddddd;
+  }
+  .Button:hover{
+    color: #fff;
+    background: #38aef0;
   }
 }
 
@@ -89,6 +100,10 @@
   margin-top: 20px;
   color: #fff;
   background-color: #38aef0;
+}
+.UserButton:hover{
+  color: #fff;
+  background: red;
 }
 
 #error_explanation {

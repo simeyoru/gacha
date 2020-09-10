@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update]
   get  "/gachas/form/:id" ,to: "gachas#form",as: "form"
   post  "/gachas/result/:id" ,to: "gachas#result",as: "result"
+  get  "/gachas/result/:id" ,to: "gachas#index"
 end
