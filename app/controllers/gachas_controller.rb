@@ -14,9 +14,9 @@ class GachasController < ApplicationController
   def result
     if params[:times] == "" || nil 
       if params['id'].to_i == 1
-        redirect_to "http://localhost:3000/gachas/form/1"
+        redirect_to form_path
       else
-        redirect_to "http://localhost:3000/gachas/form/2"
+        redirect_to form_path
       end
     else
       @val = params.require(:times)

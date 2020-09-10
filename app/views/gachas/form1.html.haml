@@ -1,13 +1,18 @@
 .gacha_main
   .gacha_main__header
-    GachaSimulator2020
-    = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn btn--orange'
+    .gacha_main__header_title
+      GachaSimulator2020
+      .gacha_main__edit
+        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn btn-gradient'
+    .gacha_main__header_user
+      name: 
+      = current_user.name
   .gacha_main__form
     %p 回したい数を入力してください
     =form_with(url: result_path(1), class: "Form", id: "form", local: true) do |f|
-      = f.number_field :time, id: "time", class: 'text',name: "times", value:'', max:"100000000"
+      =f.number_field :time, id: "time", class: 'text',name: "times", value:'', step:"1", max:"100000000", onsubmit:"result();"
       =f.submit'ガチャる', class:'send-btn'
-  .gacha_main__back
-    %a{href: 'http://localhost:3000'} トップに戻る <br>
-    .gacha_main__footer
-      GachaSimulator2020
+
+  .gacha_main__footer
+    %a{href: root_path,class:"Editlink"} トップに戻る <br>
+    GachaSimulator2020
