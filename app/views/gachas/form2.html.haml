@@ -13,7 +13,9 @@
     =form_with(url: result_path(2), class: "Form", id: "form", local: true) do |f|
       =f.number_field :time, id: "time", class: 'text',name: "times", value:'',max:"100000000", onsubmit:"charges();"
       =f.submit'ガチャる', class:'send-btn'
-
+  .gacha_main__rate
+    %button{type: "button",class:'btn btn--orange btn--radius',onclick:'rate()'}
+      提供割合<br>
   .gacha_main__footer
     %a{href: 'http://localhost:3000',class:"Editlink"} トップに戻る <br>
     GachaSimulator2020

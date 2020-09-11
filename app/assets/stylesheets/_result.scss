@@ -1,6 +1,7 @@
 .result{
   position: absolute;
   animation: fadein-keyframes 5s ease 0.2s 1 forwards;
+  min-height: fit-content;
 }
 @keyframes fadein-keyframes {
   0% {

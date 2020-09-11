@@ -131,12 +131,27 @@
       hover {color:red;}
     }
   }
-  &__back{
-    text-align: center; 
-    padding-top: 350px;
+  &__rate{
+    text-align: center;
+    margin-top: 330px;
+    color: white;
     font-size: 25px;
-    a:hover {color:red;}
   }
+  .btn--orange,
+a.btn--orange {
+  font-size:20px;
+  color: #fff;
+  background-color: #fa709a;
+}
+.btn--orange:hover,
+a.btn--orange:hover {
+  color: #fff;
+  background: purple;
+}
+
+a.btn--radius {
+   border-radius: 100vh;
+}
   &__footer{
     font-size: 25px;
     a:hover {color:red;}
