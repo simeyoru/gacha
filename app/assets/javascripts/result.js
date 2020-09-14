@@ -14,12 +14,6 @@ $(function result(){
             r = r + 1
       }
     }
-    // if (window.performance) {
-    //   if (performance.navigation.type === 1) {
-    //     location.href = "http://localhost:3000";
-    //   } 
-    // }
-
   if(1 <= val){
     $('.result_form__2').append("result"+"<br>\n").fadeIn(2000); 
     //ガチャ結果の表示

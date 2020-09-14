@@ -1,7 +1,7 @@
 
 .result_form
   .result
-    = image_tag("result.jpg")
+    = image_tag("result1.jpg")
   .result_none
   .result_form__header
     .result_form__header_title
@@ -18,3 +18,10 @@
     %a{href: form_path,class:"Editlink"} ガチャ回数入力に戻る<br>
     %a{href: root_path,class:"Editlink"} トップに戻る<br>
     GachaSimulator2020
+:javascript
+  if (window.performance) {
+    if (performance.navigation.type === 1) {
+      location.href = ;
+    } 
+  }
+
