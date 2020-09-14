@@ -11,7 +11,7 @@
     %p ガチャに使用する金額を入力してください
     このガチャは1回300円です
     =form_with(url: result_path(2), class: "Form", id: "form", local: true) do |f|
-      =f.number_field :time, id: "time", class: 'text',name: "times", value:'',max:"100000000", onsubmit:"charges();"
+      =f.number_field :time, id: "time", class: 'text',name: "times", value:'',max:"100000000", onsubmit:"charges();",placeholder:"金額"
       =f.submit'ガチャる', class:'send-btn'
   .gacha_main__rate
     %button{type: "button",class:'btn btn--orange btn--radius',onclick:'rate()'}

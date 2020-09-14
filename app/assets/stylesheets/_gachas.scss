@@ -106,13 +106,10 @@
 
   
     &_user{
-      color: white;
-      font-size: 20px;
-      min-width: 500px;
-      color: #FF8C00;
-      background: -webkit-linear-gradient(0deg, #40E0D0, #FF8C00, #FF0080);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: greenyellow;
+      font-size: 21px;
+      min-width: 500px；
+
     }
   }
   &__form{
@@ -146,7 +143,7 @@ a.btn--orange {
 .btn--orange:hover,
 a.btn--orange:hover {
   color: #fff;
-  background: purple;
+  background:#f03e73;
 }
 
 a.btn--radius {

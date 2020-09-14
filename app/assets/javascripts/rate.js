@@ -1,7 +1,6 @@
 var rate = function () {
-  //alert("SSR:3%\nSR:15%\nR:82%");
-  $('.gacha_main__rate').append("<br>\n"); 
-  $('.gacha_main__rate').append("SSR:3%"+"<br>\n"); 
-  $('.gacha_main__rate').append("SR:15%"+"<br>\n"); 
-  $('.gacha_main__rate').append("R:82%"+"<br>\n"); 
+  $('.ddd').remove();
+  $('.gacha_main__rate').append("<div class= 'ddd'>"+"SSR:3%"+"<br>\n</div>"); 
+  $('.gacha_main__rate').append("<div class= 'ddd'>"+"SR:15%"+"<br>\n</div>"); 
+  $('.gacha_main__rate').append("<div class= 'ddd'>"+"R:82%"+"<br>\n</div>"); 
 }

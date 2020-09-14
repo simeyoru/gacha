@@ -10,7 +10,7 @@
   .gacha_main__form
     %p 回したい数を入力してください
     =form_with(url: result_path(1), class: "Form", id: "form", local: true) do |f|
-      =f.number_field :time, id: "time", class: 'text',name: "times", value:'', step:"1", max:"100000000", onsubmit:"result();"
+      =f.number_field :time, id: "time", class: 'text',name: "times", value:'', step:"1", max:"100000000", onsubmit:"result();",placeholder:"回数"
       =f.submit'ガチャる', class:'send-btn'
   .gacha_main__rate
     %button{type: "button",class:'btn btn--orange btn--radius',onclick:'rate()'}
