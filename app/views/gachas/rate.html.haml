@@ -1,0 +1,37 @@
+.gacha_main
+  .gacha_main__header
+    .gacha_main__header_title
+      GachaSimulator2020
+      .gacha_main__btn 
+        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn btn-gradient'
+        = link_to "ユーザー情報編集", edit_user_path(current_user) ,class: 'btn btn-gradient'
+    .gacha_main__header_user
+      name: 
+      = current_user.name
+  .gacha_main__form
+    =form_with(url: gachas_rarity_create_path, class: "Form", id: "form", local: true) do |f|
+      %p 回すガチャの排出率を入力してください
+      SSR:
+      =f.number_field :ssr ,class:'rate', step:"0.1"
+      \%
+      SR:
+      =f.number_field :sr,class:'rate', step:"0.1"
+      \%
+      R:
+      =f.number_field :r ,class:'rate', step:"0.1"
+      \%
+      <br><br>
+      %p 欲しいキャラの排出率を入力してください
+      欲しいキャラクター:
+      =f.number_field :picup,class:'rate', step:"0.1"
+      \%
+      <br><br>
+      %p 引くガチャ1回の金額を入力してください
+      金額:
+      =f.number_field :price,class:'rate', step:"1"
+      円
+      <br>
+      =f.submit'決定', class:'send-rate-btn'
+  .gacha_main__footer
+    %a{href: root_path,class:"Editlink"} トップに戻る <br>
+    GachaSimulator2020

@@ -10,6 +10,9 @@
       = current_user.name
   .gacha_main__form
     %p ようこそ!ガチャシミュレーションへ
+    %p 回すガチャの情報を入力してください
+    = link_to  gachas_rate_path,class:"Editlink" do
+      情報入力<br>
     %p たくさん回したい方は①のリンクへ
     %p 金額に応じて回したい方は②のリンクへ
     ①

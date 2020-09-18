@@ -1,4 +1,3 @@
-
 .result_form
   .result
     = image_tag("result1.jpg")
@@ -12,16 +11,15 @@
       name: 
       = current_user.name
   .result_form__1
+    = @result.ssr
+    = @result.sr
+    = @result.r
     %input.data{:class=>"data", :type=>"hidden" , :name=>"data", :value=>@val}
+    %input.SSR{:type=>"hidden" , :name=>"SSR", :value=>@result.ssr}
+    %input.data{:class=>"SR", :type=>"hidden" , :name=>"data2", :value=>@result.sr}
+    %input.data{:class=>"R", :type=>"hidden" , :name=>"data3", :value=>@result.r}
   .result_form__2
   .result_form__footer
     %a{href: form_path,class:"Editlink"} ガチャ回数入力に戻る<br>
     %a{href: root_path,class:"Editlink"} トップに戻る<br>
     GachaSimulator2020
-:javascript
-  if (window.performance) {
-    if (performance.navigation.type === 1) {
-      location.href = ;
-    } 
-  }
-

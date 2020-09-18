@@ -10,9 +10,17 @@
       name: 
       = current_user.name
   .result_form__1
+    = @result.ssr
+    = @result.sr
+    = @result.r
+    = @result.picup
     %input.data{:class=>"data", :type=>"hidden" , :name=>"data", :value=>@val}
+    %input.SSR{:type=>"hidden" , :name=>"SSR", :value=>@result.ssr}
+    %input.SR{:type=>"hidden" , :name=>"data2", :value=>@result.sr}
+    %input.R{:type=>"hidden" , :name=>"data3", :value=>@result.r}
+    %input.picup{:type=>"hidden" , :name=>"data4", :value=>@result.picup}
+    %input.price{:type=>"hidden" , :name=>"data5", :value=>@result.price}
   .result_form__3
-
   .result_form__footer
     %a{href: form_path ,class:"Editlink"} 金額入力に戻る<br>
     %a{href: root_path ,class:"Editlink"} トップに戻る<br>

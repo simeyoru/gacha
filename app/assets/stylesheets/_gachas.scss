@@ -127,6 +127,13 @@
     .send-btn{
       hover {color:red;}
     }
+    .rate{
+      width: 80px;
+    }
+    .send-rate-btn{
+      text-align: center;
+      margin-top: 10px;
+    }
   }
   &__rate{
     text-align: center;

@@ -122,12 +122,9 @@
     }
 
     &_user{
-      font-size: 20px;
-      color: white;
-      color: #FF8C00;
-      background: -webkit-linear-gradient(0deg, #40E0D0, #FF8C00, #FF0080);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: greenyellow;
+      font-size: 21px;
+      min-width: 500px；
     }
   }
   &__1{
