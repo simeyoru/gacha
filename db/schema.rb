@@ -10,17 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_16_042055) do
+ActiveRecord::Schema.define(version: 2020_09_14_025633) do
 
   create_table "rarities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.integer "ssr"
     t.integer "sr"
     t.integer "r"
-    t.float "picup"
+    t.float "picup_ssr"
+    t.float "picup_sr"
+    t.float "picup_r"
+    t.integer "money"
+    t.integer "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "price"
     t.index ["user_id"], name: "index_rarities_on_user_id"
   end
 

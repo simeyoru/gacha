@@ -1,8 +1,4 @@
 class Rarity < ApplicationRecord
-  validates :ssr, presence: true
-  validates :sr, presence: true
-  validates :r, presence: true
-  validates :picup, presence: true
-  validates :price, presence: true
+  validates :ssr, :sr, :r, :picup_ssr, :picup_sr, :picup_r, :price, presence: true
   belongs_to :user 
 end

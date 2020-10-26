@@ -1,13 +1,5 @@
 .gacha_main
-  .gacha_main__header
-    .gacha_main__header_title
-      GachaSimulator2020
-      .gacha_main__btn 
-        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn btn-gradient'
-        = link_to "ユーザー情報編集", edit_user_path(current_user) ,class: 'btn btn-gradient'
-    .gacha_main__header_user
-      name: 
-      = current_user.name
+  = render "header"
   .gacha_main__form
     %p ようこそ!ガチャシミュレーションへ
     %p 回すガチャの情報を入力してください
