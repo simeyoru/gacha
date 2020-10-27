@@ -5,7 +5,7 @@
     .AccountPage
       .AccountPage__title
         %h2 Edit Account
-        = link_to "トップページに戻る", :back, class: 'Button'
+        = link_to "トップページに戻る", root_path, class: 'Button'
       .AccountPage__form
         = form_for(current_user) do |f|
           .FormField

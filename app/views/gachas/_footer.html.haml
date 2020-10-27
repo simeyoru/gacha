@@ -1,0 +1,13 @@
+-if @result_form == 1      
+  %a{href: form_path ,class:"Editlink"} 回数入力に戻る<br>
+  %a{href: root_path ,class:"Editlink"} トップに戻る<br>
+  GachaSimulator2020
+-elsif @result_form == 2     
+  %a{href: form_path ,class:"Editlink"} 金額入力に戻る<br>
+  %a{href: root_path ,class:"Editlink"} トップに戻る<br>
+  GachaSimulator2020
+-elsif @form.present?
+  %a{href: root_path,class:"Editlink"} トップに戻る <br>
+  GachaSimulator2020
+-else
+  GachaSimulator2020

@@ -1,3 +1,8 @@
+body {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+}
 .result{
   position: absolute;
   animation: fadein-keyframes 5s ease 0.2s 1 forwards;
@@ -21,6 +26,7 @@
   height: 100vh;
   min-width: 900px;
   background-image: url("haikei.jpg");
+  flex: 1;
   &__header{
     height: 80px;
     padding: 0 20px 0 20px;
@@ -53,11 +59,9 @@
     a.btn,
     button.btn {
       font-size: 1.0rem;
-      //font-weight: 700;
       line-height: 1.5;
       position: relative;
       display: inline-block;
-      //padding: 1rem 4rem;
       cursor: pointer;
       -webkit-user-select: none;
       -moz-user-select: none;

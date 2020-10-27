@@ -1,4 +1,4 @@
--if @form == 1 || @form == 2
+-if @form.present? || @result_form.present?
   .gacha_main__header
     .gacha_main__header_title
       = link_to "GachaSimulator2020", root_path

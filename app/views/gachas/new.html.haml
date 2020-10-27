@@ -1,0 +1,35 @@
+.gacha_main
+  = render "header"
+  .gacha_main__form_rate
+    =form_with(url: gachas_path, class: "Form", id: "form", local: true) do |f|
+      %p 回すガチャの排出率を入力してください
+      SSR:
+      =f.number_field :ssr ,class:'rate', step:"0.1", required: true, placeholder: "0"
+      \%
+      SR:
+      =f.number_field :sr,class:'rate', step:"0.1", required: true, placeholder: "0"
+      \%
+      R:
+      =f.number_field :r ,class:'rate', step:"0.1", required: true, placeholder: "0"
+      \%
+      <br><br>
+      %p 欲しいキャラの排出率を入力してください
+      SSR:
+      =f.number_field :picup_ssr,class:'rate', step:"0.1", required: true, placeholder: "0"
+      \%
+      SR:
+      =f.number_field :picup_sr,class:'rate', step:"0.1", required: true, placeholder: "0"
+      \%
+      R:
+      =f.number_field :picup_r,class:'rate', step:"0.1", required: true, placeholder: "0"
+      \%
+      <br><br>
+      %p 引くガチャ1回の金額を入力してください
+      金額:
+      =f.number_field :price, class:'rate', required: true, placeholder: "0"
+      円
+      <br>
+      = f.submit 'クリア', type: :reset, class:"reset"
+      = f.submit'決定', class:'send-rate-btn'
+  .gacha_main__footer
+    =render "footer"

@@ -13,15 +13,14 @@
 ActiveRecord::Schema.define(version: 2020_09_14_025633) do
 
   create_table "rarities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
-    t.integer "ssr"
-    t.integer "sr"
-    t.integer "r"
-    t.float "picup_ssr"
-    t.float "picup_sr"
-    t.float "picup_r"
-    t.integer "money"
-    t.integer "price"
+    t.bigint "user_id", null: false
+    t.float "ssr", null: false
+    t.float "sr", null: false
+    t.float "r", null: false
+    t.float "picup_ssr", null: false
+    t.float "picup_sr", null: false
+    t.float "picup_r", null: false
+    t.integer "price", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_rarities_on_user_id"

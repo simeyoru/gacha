@@ -1,13 +1,13 @@
 $(function charges(){
 	event.preventDefault();
-		var val  = $(".data").val();	//一回のガチャ金額
+		var val  = $(".data").val();	//課金する金額
 		var val1 = $('.SSR').val();
 		var val2 = $('.SR').val();
 		var val3 = $('.R').val();
 		var val4 = $('.picup_ssr').val();
 		var val5 = $('.picup_sr').val();
 		var val6 = $('.picup_r').val();
-		var val7 = $('.price').val();
+		var val7 = $('.price').val();		//一回あたりの値段
 		val1 = Number(val1); 
 		val2 = Number(val2);
 		val3 = Number(val3);
@@ -23,7 +23,7 @@ $(function charges(){
 				picup_r = 0
 				money = Math.floor(val / val7)
 			for (let time = 0; time < money; time++) {
-				rarity =  Math.random()*100 ;  //1~100の範囲でランダムに数字を取得
+				rarity =  Math.random() * 100 ;  //1~100の範囲でランダムに数字を取得
 				if(rarity <= val1){											//ssr
 					ssr = ssr + 1              
 					if (rarity <= val4){
@@ -44,15 +44,16 @@ $(function charges(){
 			}
 			//ガチャ結果の表示
 			if(val7 <= val){
-			$('.result_form__3').append("result"+"<br>\n"); 
+			$('.result_form__3').append("result" + "<br>\n"); 
 			$('.result_form__3').append("SSR:" + ssr + "<br>\n"); 
 			$('.result_form__3').append("SR:" + sr + "<br>\n"); 
 			$('.result_form__3').append("R:" + r + "<br>\n"); 
 			$('.result_form__3').append("欲しいSSR:" + picup_ssr + "<br>\n"); 
 			$('.result_form__3').append("欲しいSR" + picup_sr + "<br>\n"); 
 			$('.result_form__3').append("欲しいR:" + picup_r + "<br>\n"); 
-			$('.result_form__3').append("あなたが欲しいキャラは合計で"+(picup_ssr+picup_sr+picup_r)+"体出ました!!"); 
+			$('.result_form__3').append(Number(val).toLocaleString() + "円課金して" + money + "回引きました" + "<br>\n"); 
+			$('.result_form__3').append("あなたが欲しいキャラは合計で" + (picup_ssr + picup_sr + picup_r) + "体出ました!!"); 
 			}else{
-			$('.result_form__3').append("入力エラー"+ "<br>\n"+"あなたの入力した内容に誤りがあります"+ "<br>\n"+"300以上の値を入力してください");
+			$('.result_form__3').append("入力エラー" + "<br>\n" + "あなたの入力した内容に誤りがあります" +  "<br>\n" + val7 + "以上の値を入力してください");
 			}
 			})    

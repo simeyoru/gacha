@@ -11,12 +11,11 @@
         %p ガチャに使用する金額を入力してください
         =f.number_field :time, id: "time", class: 'text',name: "times", value:'',max:"100000000", onsubmit:"charges();",placeholder:"金額"
         =f.submit'ガチャる', class:'send-btn'
-    %input.SSR{:type=>"hidden" , :name=>"SSR", :value=>@result.ssr}
-    %input.SR{:type=>"hidden" , :name=>"data2", :value=>@result.sr}
-    %input.R{:type=>"hidden" , :name=>"data3", :value=>@result.r}
+    %input.SSR{:type=>"hidden" , :name=>"SSR", :value=>@rarity.ssr}
+    %input.SR{:type=>"hidden" , :name=>"data2", :value=>@rarity.sr}
+    %input.R{:type=>"hidden" , :name=>"data3", :value=>@rarity.r}
   .gacha_main__rate
     %button{type: "button",class:'btn btn--orange btn--radius',onclick:'rate()'}
       提供割合<br>
   .gacha_main__footer
-    %a{href: root_path,class:"Editlink"} トップに戻る <br>
-    GachaSimulator2020
+    =render "footer"
