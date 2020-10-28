@@ -38,6 +38,37 @@ body {
       margin-top: 10px;
     }
   }
+  &__select{
+      margin: auto;
+      margin-top: 40px;
+      padding: 15px 30px;
+      background: rgba(0,0,0,0.7);
+      color: #fff;
+      text-align: center;
+      font-size: 30px;
+      width: 880px;
+      justify-content: center;
+      a:hover {
+        opacity: 0.5;
+      }
+      .send-btn:hover {
+        opacity: 0.5;
+      }
+      .rate{
+        width: 80px;
+      }
+      .send-rate-btn{
+        text-align: center;
+        margin-top: 10px;
+      }
+      .btn-select{
+        width: 60px;
+        height: 30px;
+        background-color: aqua;
+        text-decoration: none;
+        color: white
+      }
+  }
   &__form_index{
     margin: 100px 300px;
     top: 45%;
@@ -98,6 +129,9 @@ a.btn--orange {
   color: #fff;
   background-color: #fa709a;
   outline:0;
+}
+&__form_select{
+  text-align: center;
 }
 }
 .Editlink{

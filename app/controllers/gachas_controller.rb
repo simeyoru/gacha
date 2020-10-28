@@ -1,10 +1,34 @@
 class GachasController < ApplicationController
   def index
   end
+
+  def show
+    @selects = Rarity.order(updated_at: :desc).where(user_id:current_user).limit(5)
+    @rarity = Rarity.find(params[:id])
+    @rarity_basic = @rarity.ssr
+    @rarity.ssr = 10
+    # if @rarity.update(rarity_params) 
+    #   @rarity.ssr = @rarity_basic
+    #   binding.pry
+    #   @rarity.update(rarity_params) 
+    #   redirect_to root_path
+    # else
+    #   render :show
+    # end
+  end
+
+  # def update
+  #   @rarity = Rarity.find(params[:id])
+  #   @rarity.update(rarity_params) 
+  #   if @rarity.update?
+  #     redirect_to root_path
+  #   else
+  #     render :show and return
+  #   end
+  # end
   
   def form
-    @rarity = Rarity.order(updated_at: :desc).find_by(id:current_user)
-    binding.pry
+    @rarity = Rarity.order(updated_at: :desc).find_by(user_id:current_user)
     if @rarity.user_id == current_user.id
       if @rarity.present?
         @form = params['id'].to_i

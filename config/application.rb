@@ -16,6 +16,7 @@ module Gacha
       g.helper false
       g.test_framework false
     end
+    config.active_record.default_timezone = :local
     config.i18n.default_locale = :ja
     config.time_zone = 'Tokyo'
   end
