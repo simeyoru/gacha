@@ -23,9 +23,9 @@ $(function result(){
   if(1 <= val){
     $('.result_form__2').append("result"+"<br>\n");
     //ガチャ結果の表示
-    $('.result_form__2').append("SSR:" + ssr + "<br>\n"); 
-    $('.result_form__2').append("SR:" + sr + "<br>\n"); 
-    $('.result_form__2').append("R:" + r + "<br>\n"); 
+    $('.result_form__2').append("SSR:" + Number(ssr).toLocaleString() + "<br>\n"); 
+    $('.result_form__2').append("SR:" + Number(sr).toLocaleString() + "<br>\n"); 
+    $('.result_form__2').append("R:" + Number(r).toLocaleString()+ "<br>\n"); 
 
     $('.result_form__2').append("確率" + "<br>\n"); 
     //ガチャ結果の確率の計算

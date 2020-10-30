@@ -2,14 +2,15 @@
   &__header{
     height: 80px;
     padding: 0 20px 0 20px;
-    border-bottom: solid 5px aqua;
+    border-bottom: solid 5px #40E0D0;
     &_title{
       display: flex;
       font-size: 35px;
       justify-content: space-between;
       color: #40E0D0;
     }
-    a{
+    a.title{
+      font-weight: bold;
       text-decoration: none;
       color:  #40E0D0;
     }
@@ -35,7 +36,7 @@
       font-size: 20%;
     }
     &_user{
-      color: greenyellow;
+      color: white;
       font-size: 21px;
       min-width: 500px；
     }

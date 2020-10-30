@@ -31,12 +31,12 @@ $(function charges(){
 					}
 				}else if (rarity <= (val1 + val2)){			//sr
 					sr = sr + 1
-					if (rarity <= (val1 + val4)) {
+					if (rarity <= (val1 + val5)) {
 						picup_sr += 1
 					}
 				}else if((rarity <= (val1 + val2 + val3))){		//r
 					r = r + 1
-					if (rarity <= (val1 + val2 + val5)) {
+					if (rarity <= (val1 + val2 + val6)) {
 						console.log(rarity)
 						picup_r += 1
 					}
@@ -45,14 +45,14 @@ $(function charges(){
 			//ガチャ結果の表示
 			if(val7 <= val){
 			$('.result_form__3').append("result" + "<br>\n"); 
-			$('.result_form__3').append("SSR:" + ssr + "<br>\n"); 
-			$('.result_form__3').append("SR:" + sr + "<br>\n"); 
-			$('.result_form__3').append("R:" + r + "<br>\n"); 
-			$('.result_form__3').append("欲しいSSR:" + picup_ssr + "<br>\n"); 
-			$('.result_form__3').append("欲しいSR" + picup_sr + "<br>\n"); 
-			$('.result_form__3').append("欲しいR:" + picup_r + "<br>\n"); 
+			$('.result_form__3').append("SSR:" + Number(ssr).toLocaleString() + "<br>\n"); 
+			$('.result_form__3').append("SR:" + Number(sr).toLocaleString() + "<br>\n"); 
+			$('.result_form__3').append("R:" + Number(r).toLocaleString()+ "<br>\n"); 
+			$('.result_form__3').append("欲しいSSR:" + Number(picup_ssr).toLocaleString() + "<br>\n"); 
+			$('.result_form__3').append("欲しいSR:" + Number(picup_sr).toLocaleString() + "<br>\n"); 
+			$('.result_form__3').append("欲しいR:" + Number(picup_r).toLocaleString() + "<br>\n"); 
 			$('.result_form__3').append(Number(val).toLocaleString() + "円課金して" + money + "回引きました" + "<br>\n"); 
-			$('.result_form__3').append("あなたが欲しいキャラは合計で" + (picup_ssr + picup_sr + picup_r) + "体出ました!!"); 
+			$('.result_form__3').append("あなたが欲しいキャラは合計で" + Number(picup_ssr + picup_sr + picup_r).toLocaleString() + "体出ました!!"); 
 			}else{
 			$('.result_form__3').append("入力エラー" + "<br>\n" + "あなたの入力した内容に誤りがあります" +  "<br>\n" + val7 + "以上の値を入力してください");
 			}

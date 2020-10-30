@@ -4,33 +4,31 @@ class GachasController < ApplicationController
 
   def show
     @selects = Rarity.order(updated_at: :desc).where(user_id:current_user).limit(5)
+  end
+
+  def edit
+    @rarity = Rarity.find(params[:id])
+    @selects = Rarity.find(@rarity.id)
+  end
+
+  def update
+    @selects = Rarity.order(updated_at: :desc).where(user_id:current_user).limit(5)
     @rarity = Rarity.find(params[:id])
     @rarity_basic = @rarity.ssr
     @rarity.ssr = 10
-    # if @rarity.update(rarity_params) 
-    #   @rarity.ssr = @rarity_basic
-    #   binding.pry
-    #   @rarity.update(rarity_params) 
-    #   redirect_to root_path
-    # else
-    #   render :show
-    # end
+    if @rarity.update(rarity_params) 
+      @rarity.ssr = @rarity_basic
+      @rarity.update(rarity_params) 
+      redirect_to root_path, notice: 'ガチャ情報を変更しました'
+    else
+      render :show
+    end
   end
-
-  # def update
-  #   @rarity = Rarity.find(params[:id])
-  #   @rarity.update(rarity_params) 
-  #   if @rarity.update?
-  #     redirect_to root_path
-  #   else
-  #     render :show and return
-  #   end
-  # end
   
   def form
     @rarity = Rarity.order(updated_at: :desc).find_by(user_id:current_user)
-    if @rarity.user_id == current_user.id
-      if @rarity.present?
+    if @rarity.present?
+      if @rarity.user_id == current_user.id
         @form = params['id'].to_i
         session[:ref] = nil
       else
@@ -50,7 +48,13 @@ class GachasController < ApplicationController
     if @rarity.ssr + @rarity.sr + @rarity.r != 100
       flash.now[:alert] = "回すガチャの排出率の合計を100にしてください"
       render :new and return
-    elsif @rarity.ssr <= @rarity.picup_ssr && @rarity.sr <= @rarity.picup_sr && @rarity.r <= @rarity.picup_r
+    elsif @rarity.ssr < @rarity.picup_ssr 
+      flash.now[:alert] = "欲しいキャラの排出率が回すガチャより大きいです"
+      render :new and return
+    elsif @rarity.sr < @rarity.picup_sr
+      flash.now[:alert] = "欲しいキャラの排出率が回すガチャより大きいです"
+      render :new and return
+    elsif @rarity.sr < @rarity.picup_sr
       flash.now[:alert] = "欲しいキャラの排出率が回すガチャより大きいです"
       render :new and return
     else
@@ -61,13 +65,15 @@ class GachasController < ApplicationController
 
 
   def result
-    @rarity = Rarity.order(updated_at: :desc).limit(1).find_by(params[:user_id])
+    @rarity = Rarity.order(updated_at: :desc).find_by(params[:user_id])
     if request.path_info != session[:ref]
       session[:ref] = request.path_info
       if params[:times] == "" || nil 
         redirect_to form_path
       else
         @val = params.require(:times)
+        @val2 = params.require(:times1)
+        @val3 = params.require(:times2)
         respond_to do |format|
           format.html
           format.json

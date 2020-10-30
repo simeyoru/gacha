@@ -2,6 +2,8 @@ body {
   display: flex;
   flex-flow: column;
   min-height: 100vh;
+  height: 100%;
+  background-image: url("haikei.jpg");
 }
 .result{
   position: absolute;
@@ -21,12 +23,10 @@ body {
   position: relative;
 }
 .result_form{
-  background-color: #99FFFF;
+  background: rgba(0,0,0,0.4);
   width: 100vw;
   height: 100vh;
   min-width: 900px;
-  background-image: url("haikei.jpg");
-  flex: 1;
   &__header{
     height: 80px;
     padding: 0 20px 0 20px;
@@ -54,113 +54,27 @@ body {
       box-sizing: border-box;
       font-size: 20%;
     }
-    
-    .btn,
-    a.btn,
-    button.btn {
-      font-size: 1.0rem;
-      line-height: 1.5;
-      position: relative;
-      display: inline-block;
-      cursor: pointer;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-      -webkit-transition: all 0.3s;
-      transition: all 0.3s;
-      text-align: center;
-      vertical-align: middle;
-      text-decoration: none;
-      letter-spacing: 0.1em;
-      color: #212529;
-      border-radius: 0.5rem;
-    }
-    
-    a.btn-gradient {
-      font-size: 2rem;
-      color: #fff;
-      border-radius: 0;
-      background-image: -webkit-gradient(
-        linear,
-        left top,
-        right top,
-        from(#fa709a),
-        to(#fee140)
-      );
-      background-image: -webkit-linear-gradient(left, #fa709a 0%, #fee140 100%);
-      background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
-    }
-    
-    a.btn-gradient span {
-      background-image: -webkit-linear-gradient(
-        315deg,
-        #231557 0%,
-        #44107a 29%,
-        #ff1361 67%,
-        #fff800 100%
-      );
-      background-image: linear-gradient(
-        -225deg,
-        #231557 0%,
-        #44107a 29%,
-        #ff1361 67%,
-        #fff800 100%
-      );
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    
-    a.btn-gradient:hover {
-      background: -webkit-gradient(
-        linear,
-        left top,
-        right top,
-        from(#fee140),
-        to(#fee140)
-      );
-      background: -webkit-linear-gradient(left, #fee140 0%, #fee140 100%);
-      background: linear-gradient(to right, #fee140 0%, #fee140 100%);
-      -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
-      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
-    }
 
-    &_user{
-      color: greenyellow;
-      font-size: 21px;
-      min-width: 500px；
-    }
   }
   &__1{
     display: none;
   }
   &__2{
-    color: yellow;
+    color: orange;
     text-align: center; 
     font-size: 35px;
     margin-top: auto;
     margin-bottom: auto;
   }
   &__3{
-    color: yellow;
+    color: rgb(42, 218, 159);
     text-align: center; 
     font-size: 35px;
-
   }
-  &__back{
+  &__4{
+    // color: rgb(42, 218, 159);
+    color: orange;
     text-align: center; 
-    font-size: 25px;
-    a:hover {color:red;}
-    
-  }
-  &__footer{
-    font-size: 25px;
-    a:hover {color:red;}
-    width: 100%;
-    color: #fff;
-    text-align: center;
-    padding: 30px 0;
-    position: absolute;
-    bottom: 0; 
+    font-size: 35px;
   }
 }

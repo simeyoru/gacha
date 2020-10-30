@@ -1,13 +1,24 @@
 -if @result_form == 1      
-  %a{href: form_path ,class:"Editlink"} 回数入力に戻る<br>
-  %a{href: root_path ,class:"Editlink"} トップに戻る<br>
-  GachaSimulator2020
+  =link_to "回数入力に戻る", form_path, class:"Editlink"
+  %br
+  =link_to "トップに戻る",root_path,class:"Editlink" 
+  %br
+  =link_to "GachaSimulator2020",root_path,class:"Editlink"
 -elsif @result_form == 2     
-  %a{href: form_path ,class:"Editlink"} 金額入力に戻る<br>
-  %a{href: root_path ,class:"Editlink"} トップに戻る<br>
-  GachaSimulator2020
+  =link_to "金額入力に戻る", form_path, class:"Editlink"
+  %br
+  =link_to "トップに戻る",root_path,class:"Editlink" 
+  %br
+  =link_to "GachaSimulator2020",root_path,class:"Editlink"
+-elsif @result_form == 3     
+  =link_to "入力に戻る", form_path, class:"Editlink"
+  %br
+  =link_to "トップに戻る",root_path,class:"Editlink" 
+  %br
+  =link_to "GachaSimulator2020",root_path,class:"Editlink"
 -elsif @form.present?
-  %a{href: root_path,class:"Editlink"} トップに戻る <br>
-  GachaSimulator2020
+  =link_to "トップに戻る",root_path,class:"Editlink" 
+  %br
+  =link_to "GachaSimulator2020",root_path,class:"Editlink"
 -else
-  GachaSimulator2020
+  =link_to "GachaSimulator2020",root_path,class:"Editlink"

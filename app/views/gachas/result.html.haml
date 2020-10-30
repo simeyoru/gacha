@@ -2,11 +2,8 @@
   .result
     = image_tag("result1.jpg")
   =render "header"
-  -if @rarity_form == 1
+  -if @result_form == 1
     .result_form__1
-      = @rarity.ssr
-      = @rarity.sr
-      = @rarity.r
       %input.data{:class=>"data", :type=>"hidden" , :name=>"data", :value=>@val}
       %input.SSR{:type=>"hidden" , :name=>"SSR", :value=>@rarity.ssr}
       %input.data{:class=>"SR", :type=>"hidden" , :name=>"data2", :value=>@rarity.sr}
@@ -14,14 +11,8 @@
     .result_form__2
     .result_form__footer
       =render "footer"
-  -else
+  -elsif @result_form == 2
     .result_form__1
-      = @rarity.ssr
-      = @rarity.sr
-      = @rarity.r
-      = @rarity.picup_ssr
-      = @rarity.picup_sr
-      = @rarity.picup_r
       %input.data{:class=>"data", :type=>"hidden" , :name=>"data", :value=>@val}
       %input.SSR{:type=>"hidden" , :name=>"SSR", :value=>@rarity.ssr}
       %input.SR{:type=>"hidden" , :name=>"data2", :value=>@rarity.sr}
@@ -31,6 +22,19 @@
       %input.picup_r{:type=>"hidden" , :name=>"data6", :value=>@rarity.picup_r}
       %input.price{:type=>"hidden" , :name=>"data7", :value=>@rarity.price}
     .result_form__3
+  -elsif @result_form == 3
+    .result_form__1
+      %input.data_ssr{ :type=>"hidden" , :name=>"data", :value=>@val}
+      %input.data_sr{:type=>"hidden" , :name=>"data8", :value=>@val2}
+      %input.data_r{:type=>"hidden" , :name=>"data9", :value=>@val3}
+      %input.SSR{:type=>"hidden" , :name=>"SSR", :value=>@rarity.ssr}
+      %input.SR{:type=>"hidden" , :name=>"data2", :value=>@rarity.sr}
+      %input.R{:type=>"hidden" , :name=>"data3", :value=>@rarity.r}
+      %input.picup_ssr{:type=>"hidden" , :name=>"data4", :value=>@rarity.picup_ssr}
+      %input.picup_sr{:type=>"hidden" , :name=>"data5", :value=>@rarity.picup_sr}
+      %input.picup_r{:type=>"hidden" , :name=>"data6", :value=>@rarity.picup_r}
+      %input.price{:type=>"hidden" , :name=>"data7", :value=>@rarity.price}
+    .result_form__4
     .result_form__footer
       =render "footer"
 

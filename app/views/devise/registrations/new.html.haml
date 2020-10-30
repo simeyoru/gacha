@@ -4,7 +4,7 @@
       GachaSimulator2020
     .AccountPage
       .AccountPage__title
-        %h2 CreateAccount
+        %h2 アカウント作成
         = render "devise/shared/links"
       .AccountPage__form
         = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
@@ -31,4 +31,4 @@
             .FormField__input--normal
               = f.password_field :password_confirmation, autocomplete: "off"
           .actions
-            = f.submit "Create Account", class: 'Button UserButton'
+            = f.submit "決定", class: 'Button UserButton'

@@ -1,37 +1,44 @@
 .gacha_main
   = render "header"
-  .gacha_main__select
-    -@selects.each do |select|
-      %table{:border => "5"}
-        %tr
-          %th SSR
-          %th SR
-          %th R
-          %th 欲しいSSR
-          %th 欲しいSR
-          %th 欲しいR
-          %th 金額
-        %tr
-          %td 
-            =select.ssr
-            \%
-          %td 
-            =select.sr
-            \%
-          %td
-            =select.r
-            \%
-          %td
-            =select.picup_ssr
-            \%
-          %td
-            =select.picup_sr
-            \%
-          %td
-            =select.picup_r  
-            \% 
-          %td   
-            =select.price
-            円
-          =link_to "選択", gacha_path(select.id), class:'btn-select', id:select.id
-  =render "footer"
+  .gacha_main__title
+    過去の情報一覧(最新５件)
+    .gacha_main__select
+      -if @selects.present?
+        -@selects.each do |select|
+          %table{:border => "5",class:"select"}
+            %tr
+              %th SSR
+              %th SR
+              %th R
+              %th 欲しいSSR
+              %th 欲しいSR
+              %th 欲しいR
+              %th 金額
+            %tr
+              %td 
+                =select.ssr
+                \%
+              %td 
+                =select.sr
+                \%
+              %td
+                =select.r
+                \%
+              %td
+                =select.picup_ssr
+                \%
+              %td
+                =select.picup_sr
+                \%
+              %td
+                =select.picup_r  
+                \% 
+              %td   
+                =select.price
+                円
+          =link_to "選択", edit_gacha_path(select.id), class:'btn-select'
+      -else
+        過去に登録された情報はありません
+      =link_to "情報入力フォームに戻る", new_gacha_path, class:'btn-back'
+  .result_form__footer
+    =render "footer"

@@ -1,0 +1,41 @@
+.gacha_main
+  = render "header"
+  .gacha_main__edit
+    下記の情報でガチャを回しますか？
+    .gacha_main__edit_table
+      %table{:border => "5",class:"select"}
+        %tr
+          %th SSR
+          %th SR
+          %th R
+          %th 欲しいSSR
+          %th 欲しいSR
+          %th 欲しいR
+          %th 金額
+        %tr
+          %td 
+            =@selects.ssr
+            \%
+          %td 
+            =@selects.sr
+            \%
+          %td
+            =@selects.r
+            \%
+          %td
+            =@selects.picup_ssr
+            \%
+          %td
+            =@selects.picup_sr
+            \%
+          %td
+            =@selects.picup_r  
+            \% 
+          %td   
+            =@selects.price
+            円
+    = form_with url:gacha_path(@selects.id), method: :patch, local: true do |f|
+      =link_to "いいえ",gacha_path(current_user), class:'btn-select'
+      =f.submit "はい", class:'btn-submit'
+  .result_form__footer
+    =render "footer"
