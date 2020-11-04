@@ -6,6 +6,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  min-width: 980px;
 }
 .gacha_main{
   background: rgba(0,0,0,0.4);
@@ -80,10 +81,11 @@ body {
         background-color: #40E0D0;
         text-decoration: none;
         color: white;
+      }
       .btn-back{
+        width: 300px;
         font-size: 25px;
         display: inline-block;
-        margin-right: 600px;
         margin-top: 20px;
         height: 30px;
         padding: 10px;
@@ -91,8 +93,7 @@ body {
         text-decoration: none;
         color: white
       }
-  }
-}
+    } 
   &__edit{
     margin: auto;
     margin-top: 40px;
@@ -200,8 +201,12 @@ a.btn--orange {
 .Editlink{
   text-decoration: none;
   color: #38eaf0;
+  &_index{
+    text-decoration: none;
+    color: #38eaf0;
+  }
 }
-a.Editlink:hover{
+a.Editlink_index:hover{
   opacity: 0.5;
 }
 .reset{

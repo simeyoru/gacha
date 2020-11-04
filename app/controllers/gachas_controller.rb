@@ -3,15 +3,18 @@ class GachasController < ApplicationController
   end
 
   def show
+    @form = params['id'].to_i
     @selects = Rarity.order(updated_at: :desc).where(user_id:current_user).limit(5)
   end
 
   def edit
+    @form = params['id'].to_i
     @rarity = Rarity.find(params[:id])
     @selects = Rarity.find(@rarity.id)
   end
 
   def update
+    @form = params['id'].to_i
     @selects = Rarity.order(updated_at: :desc).where(user_id:current_user).limit(5)
     @rarity = Rarity.find(params[:id])
     @rarity_basic = @rarity.ssr
@@ -40,6 +43,7 @@ class GachasController < ApplicationController
   end
 
   def new
+    @form = params['id'].to_i
     @rarity = Rarity.new
   end
 
@@ -65,18 +69,27 @@ class GachasController < ApplicationController
 
 
   def result
+    @form = params['id'].to_i
     @rarity = Rarity.order(updated_at: :desc).find_by(params[:user_id])
     if request.path_info != session[:ref]
       session[:ref] = request.path_info
       if params[:times] == "" || nil 
         redirect_to form_path
       else
-        @val = params.require(:times)
-        @val2 = params.require(:times1)
-        @val3 = params.require(:times2)
-        respond_to do |format|
-          format.html
-          format.json
+        if @form == 3
+          @val = params.require(:times)
+          @val2 = params.require(:times1)
+          @val3 = params.require(:times2)
+          respond_to do |format|
+            format.html
+            format.json
+          end
+        else
+          @val = params.require(:times)
+          respond_to do |format|
+            format.html
+            format.json
+          end
         end
         @result_form = params['id'].to_i
       end

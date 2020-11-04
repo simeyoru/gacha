@@ -22,6 +22,8 @@
       %input.picup_r{:type=>"hidden" , :name=>"data6", :value=>@rarity.picup_r}
       %input.price{:type=>"hidden" , :name=>"data7", :value=>@rarity.price}
     .result_form__3
+    .result_form__footer
+      =render "footer"
   -elsif @result_form == 3
     .result_form__1
       %input.data_ssr{ :type=>"hidden" , :name=>"data", :value=>@val}
