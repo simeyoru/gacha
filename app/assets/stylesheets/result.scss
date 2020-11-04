@@ -1,0 +1,79 @@
+body {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+  height: 100%;
+  background-image: url("haikei.jpg");
+}
+.result{
+  position: absolute;
+  animation: fadein-keyframes 5s ease 0.2s 1 forwards;
+  min-height: fit-content;
+}
+@keyframes fadein-keyframes {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.result_none{
+  visibility:hidden;
+  position: relative;
+}
+.result_form{
+  background: rgba(0,0,0,0.4);
+  width: 100vw;
+  height: 100vh;
+  min-width: 900px;
+  &__header{
+    height: 80px;
+    padding: 0 20px 0 20px;
+    border-bottom: solid 5px rgb(12, 164, 211);
+    color: white;
+    &_title{
+      display: flex;
+      font-size: 35px;
+      justify-content: space-between;
+      font-weight: bolder;
+      color: #40E0D0;
+    }
+    *,
+    *:before,
+    *:after {
+      -webkit-text-fill-color:initial;
+      font-weight: initial;
+      text-decoration: initial;
+      -webkit-box-sizing: inherit;
+      box-sizing: inherit;
+    }
+    
+    html {
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      font-size: 20%;
+    }
+
+  }
+  &__1{
+    display: none;
+  }
+  &__2{
+    color: orange;
+    text-align: center; 
+    font-size: 35px;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  &__3{
+    color: orange;
+    text-align: center; 
+    font-size: 35px;
+  }
+  &__4{
+    color: orange;
+    text-align: center; 
+    font-size: 35px;
+  }
+}

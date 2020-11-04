@@ -1,0 +1,219 @@
+body {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  background-image: url("haikei.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  min-width: 980px;
+}
+.gacha_main{
+  background: rgba(0,0,0,0.4);
+  width:  100%;
+  min-width: 900px;
+  position: relative;
+  height: auto !important;
+  min-height: 100%;
+  &__title{
+    color: white;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    text-align: center;
+    margin: auto;
+    font-size: 30px;
+    width: 960px;
+    margin-top: 30px;
+  }
+  &__underline{
+    border-bottom: solid 4px red;
+  }
+  &__form{
+    margin: auto;
+    margin-top: 180px;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    text-align: center;
+    font-size: 30px;
+    width: 800px;
+    a:hover {
+      opacity: 0.5;
+    }
+    .send-btn:hover {
+      opacity: 0.5;
+    }
+    .rate{
+      width: 80px;
+    }
+    .send-rate-btn{
+      text-align: center;
+      margin-top: 10px;
+    }
+  }
+  &__select{
+      margin: auto;
+      margin-bottom: 150px;
+      padding: 15px 30px;
+      background: rgba(0,0,0,0.7);
+      color: #fff;
+      text-align: center;
+      font-size: 30px;
+      width:  900px;
+      justify-content: center;
+      height: 520px;
+      a.send-btn:hover {
+        opacity: 0.5;
+      }
+      .rate{
+        width: 80px;
+      }
+      .send-rate-btn{
+        text-align: center;
+        margin-top: 10px;
+      }
+      .btn-select{
+        font-size: 25px;
+        margin: 30px 0;
+        display: inline-block;
+        height: 30px;
+        padding: 10px;
+        padding-top: 5px;
+        background-color: #40E0D0;
+        text-decoration: none;
+        color: white;
+      }
+      .btn-back{
+        width: 300px;
+        font-size: 25px;
+        display: inline-block;
+        margin-top: 20px;
+        height: 30px;
+        padding: 10px;
+        background-color: #40E0D0;
+        text-decoration: none;
+        color: white
+      }
+    } 
+  &__edit{
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 300px;
+    padding: 15px 30px;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    text-align: center;
+    font-size: 30px;
+    width:  820px;
+    height: 250px;
+
+    .btn-select{
+      margin: 20px 0;
+      width: 100%;
+      height: 30px;
+      padding: 10px;
+      background-color: rgb(156, 151, 151);
+      text-decoration: none;
+      color: white
+    }
+    .btn-submit{
+      margin: 20px 0;
+      width: 100px;
+      height: 50px;
+      background-color: #40E0D0;
+      text-decoration: none;
+      color: white;
+      border: none;
+      outline: none;
+    }
+  }
+  &__form_index{
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom:140px;
+    top: 45%;
+    left: 50%;
+    padding: 15px 30px;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    text-align: center;
+    font-size: 30px;
+    width: 700px;
+
+    a.send-btn:hover {
+      opacity: 0.5;
+    }
+    .rate{
+      width: 80px;
+    }
+    .send-rate-btn{
+      text-align: center;
+      margin-top: 10px;
+    }
+  }
+  &__form_rate{
+    margin: 50px 300px;
+    margin-bottom: 100px;
+    top: 45%;
+    left: 50%;
+    padding: 15px 30px;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    text-align: center;
+    font-size: 30px;
+    width: 570px;
+    a.send-btn:hover {
+      opacity: 0.5;
+    }
+    .rate{
+      width: 80px;
+    }
+    .send-rate-btn{
+      text-align: center;
+      margin-top: 10px;
+    }
+  }
+  &__rate{
+    text-align: center;
+    margin-top: 20px;
+    color: white;
+    font-size: 25px;
+    margin-bottom: 270px;
+  }
+  .btn--orange,
+a.btn--orange {
+  font-size:20px;
+  color: #fff;
+  background-color: #fa709a;
+  outline:0;
+}
+&__form_select{
+  text-align: center;
+}
+.select-btn{
+  width: 100%;
+  height: 30px;
+  background-color: #EFEFEF;
+  text-decoration: none;
+  color: black;
+  padding: 8.5px;
+}
+}
+.Editlink{
+  text-decoration: none;
+  color: #38eaf0;
+  &_index{
+    text-decoration: none;
+    color: #38eaf0;
+  }
+}
+a.Editlink_index:hover{
+  opacity: 0.5;
+}
+.reset{
+  text-align: center;
+  width: 100px;
+  height: 49px;
+}
+table.select{
+  float:left;
+}

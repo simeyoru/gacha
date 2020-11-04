@@ -1,22 +1,24 @@
 .gacha_main
-  .gacha_main__header
-    .gacha_main__header_title
-      GachaSimulator2020
-      .gacha_main__btn 
-        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn btn-gradient'
-        = link_to "ユーザー情報編集", edit_user_path(current_user) ,class: 'btn btn-gradient'
-    .gacha_main__header_user
-      name: 
-      = current_user.name
-  .gacha_main__form
+  = render "header"
+  .gacha_main__form_index
     %p ようこそ!ガチャシミュレーションへ
-    %p たくさん回したい方は①のリンクへ
-    %p 金額に応じて回したい方は②のリンクへ
+    %p 回すガチャの情報を入力してください
+    = link_to  new_gacha_path,class:"Editlink_index" do
+      情報入力<br>
+    たくさん回したい方は
+    %span.gacha_main__underline①のリンクへ<br>
+    金額に応じて回したい方は
+    %span.gacha_main__underline②のリンクへ<br>
+    当たるまでの回数を知りたい方は
+    %span.gacha_main__underline③のリンクへ<br>
     ①
-    = link_to form_path(1),class:"Editlink" do
+    = link_to form_path(1),class:"Editlink_index" do
       気にせずガチャ<br>
     ②
-    = link_to form_path(2) ,class:"Editlink" do
-      課金額ガチャ
+    = link_to form_path(2) ,class:"Editlink_index" do
+      課金額ガチャ<br>
+    ③
+    = link_to form_path(3) ,class:"Editlink_index" do
+      ガチャの回数知りたいな
   .gacha_main__footer
-    GachaSimulator2020
+    =render "footer"

@@ -1,0 +1,36 @@
+.gacha_main
+  =render "header"
+  .gacha_main__form
+    -if @form == 1
+      =form_with(url: result_path(1), class: "Form", id: "form", local: true) do |f|
+        %p 回したい数を入力してください
+        =f.number_field :time, id: "time", class: 'text',name: "times", value:'', step:"1", max:"10000000", onsubmit:"result();",placeholder:"回数"
+        回
+        =f.submit'ガチャる', class:'send-btn'
+    -elsif @form == 2
+      =form_with(url: result_path(2), class: "Form", id: "form", local: true) do |f|
+        %p ガチャに使用する金額を入力してください
+        =f.number_field :time, id: "time", class: 'text',name: "times", value:'',max:"10000000", onsubmit:"charges();",placeholder:"金額"
+        円
+        =f.submit'ガチャる', class:'send-btn'
+    -else 
+      =form_with(url: result_path(3), class: "Form", id: "form", local: true) do |f|
+        %p 欲しいキャラの数を入力してください
+        SSR:
+        =f.number_field :ssr ,class:'rate',name: "times", step:"1", required: true, placeholder: "0", onsubmit:"times();"
+        体
+        SR:
+        =f.number_field :sr,class:'rate',name: "times1", step:"1", required: true, placeholder: "0", onsubmit:"times();"
+        体
+        R:
+        =f.number_field :r ,class:'rate',name: "times2", step:"1", required: true, placeholder: "0", onsubmit:"times();"
+        体
+        =f.submit'ガチャる', class:'send-btn'
+    %input.SSR{:type=>"hidden" , :name=>"SSR", :value=>@rarity.ssr}
+    %input.SR{:type=>"hidden" , :name=>"data2", :value=>@rarity.sr}
+    %input.R{:type=>"hidden" , :name=>"data3", :value=>@rarity.r}
+  .gacha_main__rate
+    %button{type: "button",class:'btn btn--orange btn--radius',onclick:'rate()'}
+      提供割合<br>
+  .gacha_main__footer
+    =render "footer"

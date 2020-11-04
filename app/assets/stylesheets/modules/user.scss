@@ -1,10 +1,7 @@
-.AccountPage {
-  height: 90vh;
-  width: 100%;
-  padding: 60px 0px 0 60px;
-  background-color: #99FFFF;
-  display: flex;
-  background-image: url('myroom.jpg');
+.AccountPage{
+  padding: 40px 0px 0 60px;
+  padding-left: 380px;
+  min-width: 880px;
 }
 .AccountPage__title {
   width: 40%;
@@ -12,27 +9,22 @@
   font-weight: 200;
 
   h2 {
-    margin-bottom: 10px;
+    color: white;
     letter-spacing: 3px;
     font-size: 40px;
+    font-weight: bold;
     &:after {
       content: "";
       display: block;
       width: 60px;
       margin-top: 5px;
-      border-bottom: 1px solid #38aef0;
     }
   }
 
   .Button {
     font-size: 20px;
-    margin-top: 40px;
     color: #fff;
-    background-color: #dddddd;
-  }
-  .Button:hover{
-    color: #fff;
-    background: #38aef0;
+    background-color: #24978e;
   }
 }
 
@@ -43,9 +35,10 @@
 .FormField {
   margin-bottom: 10px;
   &__label--normal {
+    color: white;
     padding: 10px 0;
     letter-spacing: 1px;
-    font-size: 14px;
+    font-size: 20px;
     font-weight: 200;
     i {
       font-size: 11px;
@@ -96,11 +89,10 @@
   margin-top: 20px;
   color: #fff;
   background-color: #38aef0;
+  font-size: 20px;
+  margin-left: 300px;
 }
-.UserButton:hover{
-  color: #fff;
-  background: red;
-}
+
 
 #error_explanation {
   margin: 20px 0;
