@@ -1,3 +1,15 @@
+body{
+ margin: 0px;
+ padding: 0;
+}
+.edit_main{
+  background: rgba(0,0,0,0.6);
+  width:  100vw;
+  height: 100vh;
+  min-width: 800px;
+  position: relative;
+  min-height: 100%;
+}
 .AccountPage{
   padding: 40px 0px 0 60px;
   padding-left: 380px;

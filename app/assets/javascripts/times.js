@@ -27,37 +27,37 @@ $(function times(){
     count_ssr = 0   //ssrのカウント
     count_sr = 0    //srのカウント
     count_r = 0     //rのカウント
-			for (let time = 0; time < 1000000; time++) {
-        rarity =  Math.random() * 100 ;  //1~100の範囲でランダムに数字を取得
-        if (count_ssr == 0){
-          val == 0
-        }else if(count_sr == 0){
-          val8 == 0
-        }else if (count_r == 0){
-          val9 == 0
-        }
-        if (count_ssr >= val && count_sr >= val8 && count_r >= val9){
-          break;
-        }else{
-          if(rarity <= val1){											//ssr
-            ssr += 1
-            if (rarity <= val4 && val != 0 ){
-              count_ssr += 1
-            }
-          }else if (rarity <= val1 + val2){			//sr
-              sr += 1
-              if (rarity <= val1 + val5 && val8 != 0){
-                count_sr += 1
-              }       
-          }else if(rarity <= val1 + val2 + val3){		//r
-            r += 1
-            if (rarity <= val1 + val2 + val6 && val9 != 0){
-              count_r += 1
-            }
-          }
-            count += 1
-        }
+
+    for (let time = 0; time < 1000000; time++) {
+      if (val4 == 0 && val5 == 0 && val6 == 0){
+        break;
       }
+      rarity =  Math.random() * 100 ;  //1~100の範囲でランダムに数字を取得
+      if (count_ssr >= val && count_sr >= val8 && count_r >= val9 ){
+        break;
+      }else{
+        if(rarity <= val1){											//ssr
+          ssr += 1
+          if (rarity <= val4 && val != 0 ){
+            count_ssr += 1
+          }
+        }else if (rarity <= val1 + val2){			//sr
+            sr += 1
+            if (rarity <= val1 + val5 && val8 != 0){
+              count_sr += 1
+            }       
+        }else if(rarity <= val1 + val2 + val3){		//r
+          r += 1
+          if (rarity <= val1 + val2 + val6 && val9 != 0){
+            count_r += 1
+          }
+        }
+          count += 1
+      }
+    }
+      if (val4 == 0 && val5 == 0 && val6 == 0){
+        $('.result_form__4').append("欲しいキャラクターの確率が全て0なのでこのガチャを回すことはできません"); 
+      }else{
 			$('.result_form__4').append("result" + "<br>\n"); 
 			$('.result_form__4').append("SSR:" + Number(ssr).toLocaleString() + "<br>\n"); 
 			$('.result_form__4').append("SR:" + Number(sr).toLocaleString() + "<br>\n"); 
@@ -67,4 +67,5 @@ $(function times(){
 			$('.result_form__4').append("欲しいSSR:" + Number(count_ssr).toLocaleString() + "<br>\n"); 
 			$('.result_form__4').append("欲しいSR:" + Number(count_sr).toLocaleString() + "<br>\n"); 
       $('.result_form__4').append("欲しいR:" + Number(count_r).toLocaleString() + "<br>\n"); 
+      }
 			})    

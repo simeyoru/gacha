@@ -7,15 +7,20 @@ body {
 }
 .result{
   position: absolute;
-  animation: fadein-keyframes 5s ease 0.2s 1 forwards;
+  animation: fadeOut 6s ease 0.2s 1 forwards;
   min-height: fit-content;
+  .image{
+    height: 710px;
+    max-width: 100%;
+  }
 }
-@keyframes fadein-keyframes {
+@keyframes fadeOut {
   0% {
     opacity: 1;
   }
   100% {
     opacity: 0;
+    z-index: -1;
   }
 }
 .result_none{
@@ -23,7 +28,7 @@ body {
   position: relative;
 }
 .result_form{
-  background: rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.5);
   width: 100vw;
   height: 100vh;
   min-width: 900px;
