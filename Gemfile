@@ -57,3 +57,6 @@ gem 'haml-rails'
 gem 'jquery-rails'
 gem 'devise'
 gem 'gon'
+group :production do
+  gem 'rails_12factor'
+end
