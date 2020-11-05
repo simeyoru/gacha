@@ -70,7 +70,7 @@ class GachasController < ApplicationController
 
   def result
     @form = params['id'].to_i
-    @rarity = Rarity.order(updated_at: :desc).find_by(params[:user_id])
+    @rarity = Rarity.order(updated_at: :desc).find_by(user_id:current_user)
     if request.path_info != session[:ref]
       session[:ref] = request.path_info
       if params[:times] == "" || nil 
