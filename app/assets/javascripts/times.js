@@ -38,7 +38,7 @@ $(function times(){
       }else{
         if(rarity <= val1){											//ssr
           ssr += 1
-          if (rarity <= val4 && val != 0 ){
+          if (rarity <= val4 && val != 0){
             count_ssr += 1
           }
         }else if (rarity <= val1 + val2){			//sr

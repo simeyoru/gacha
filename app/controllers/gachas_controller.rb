@@ -49,6 +49,10 @@ class GachasController < ApplicationController
 
   def create
     @rarity = Rarity.new(rarity_params)
+    if @rarity.ssr == 0 || @rarity.sr == 0 || @rarity.r == 0 || @rarity.picup_ssr == 0 ||@rarity.picup_sr == 0||@rarity.picup_r == 0
+      flash.now[:alert] = "回すガチャの情報を0にしないでください"
+      render :new and return
+    end
     if @rarity.ssr + @rarity.sr + @rarity.r != 100
       flash.now[:alert] = "回すガチャの排出率の合計を100にしてください"
       render :new and return
