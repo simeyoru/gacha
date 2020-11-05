@@ -4,13 +4,13 @@
     -if @form == 1
       =form_with(url: result_path(1), class: "Form", id: "form", local: true) do |f|
         %p 回したい数を入力してください
-        =f.number_field :time, id: "time", class: 'text',name: "times", value:'', step:"1", max:"10000000", onsubmit:"result();",placeholder:"回数"
+        =f.number_field :time, id: "time", class: 'text',name: "times", value:'', step:"1", max:"10000000", onsubmit:"result();",placeholder:"回数",required: true
         回
         =f.submit'ガチャる', class:'send-btn'
     -elsif @form == 2
       =form_with(url: result_path(2), class: "Form", id: "form", local: true) do |f|
         %p ガチャに使用する金額を入力してください
-        =f.number_field :time, id: "time", class: 'text',name: "times", value:'',max:"10000000", onsubmit:"charges();",placeholder:"金額"
+        =f.number_field :time, id: "time", class: 'text',name: "times", value:'',max:"10000000", onsubmit:"charges();",placeholder:"金額",required: true
         円
         =f.submit'ガチャる', class:'send-btn'
     -else 
@@ -29,8 +29,15 @@
     %input.SSR{:type=>"hidden" , :name=>"SSR", :value=>@rarity.ssr}
     %input.SR{:type=>"hidden" , :name=>"data2", :value=>@rarity.sr}
     %input.R{:type=>"hidden" , :name=>"data3", :value=>@rarity.r}
+    %input.picup_ssr{:type=>"hidden" , :name=>"data4", :value=>@rarity.picup_ssr}
+    %input.picup_sr{:type=>"hidden" , :name=>"data5", :value=>@rarity.picup_sr}
+    %input.picup_r{:type=>"hidden" , :name=>"data6", :value=>@rarity.picup_r}
   .gacha_main__rate
-    %button{type: "button",class:'btn btn--orange btn--radius',onclick:'rate()'}
-      提供割合<br>
+    -if @form == 3
+      %button{type: "button",class:'btn btn--orange btn--radius',onclick:'pic()'}
+        欲しいキャラの割合<br>
+    -else
+      %button{type: "button",class:'btn btn--orange btn--radius',onclick:'rate()'}
+        提供割合<br>
   .gacha_main__footer
     =render "footer"

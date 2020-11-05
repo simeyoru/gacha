@@ -42,4 +42,15 @@
     $('.gacha_main__rate').append("<div class= 'ddd'>"+"SR:"+val2+"%<br>\n</div>"); 
     $('.gacha_main__rate').append("<div class= 'ddd'>"+"R:"+val3+"%<br>\n</div>"); 
   }
+
+  var pic = function () {
+    var val1 = $('.picup_ssr').val();
+    var val2 = $('.picup_sr').val();
+    var val3 = $('.picup_r').val();
+
+    $('.ddd').remove();
+    $('.gacha_main__rate').append("<div class= 'ddd'>"+"SSR:"+val1+"%<br>\n</div>"); 
+    $('.gacha_main__rate').append("<div class= 'ddd'>"+"SR:"+val2+"%<br>\n</div>"); 
+    $('.gacha_main__rate').append("<div class= 'ddd'>"+"R:"+val3+"%<br>\n</div>"); 
+  }
   // });
