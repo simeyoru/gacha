@@ -4,26 +4,35 @@
     -if @form == 1
       =form_with(url: result_path(1), class: "Form", id: "form", local: true) do |f|
         %p 回したい数を入力してください
-        =f.number_field :time, id: "time", class: 'text',name: "times", value:'', step:"1", max:"10000000", onsubmit:"result();",placeholder:"回数",required: true
+        =f.number_field :time, id: "time", class: 'text',name: "times", step:"1", max:"10000000", onsubmit:"result();",placeholder:"回数",required: true
         回
         =f.submit'ガチャる', class:'send-btn'
     -elsif @form == 2
       =form_with(url: result_path(2), class: "Form", id: "form", local: true) do |f|
         %p ガチャに使用する金額を入力してください
-        =f.number_field :time, id: "time", class: 'text',name: "times", value:'',max:"10000000", onsubmit:"charges();",placeholder:"金額",required: true
+        =f.number_field :time, id: "time", class: 'text',name: "times",max:"10000000", onsubmit:"charges();",placeholder:"金額",required: true
         円
         =f.submit'ガチャる', class:'send-btn'
     -else 
       =form_with(url: result_path(3), class: "Form", id: "form", local: true) do |f|
         %p 欲しいキャラの数を入力してください
         SSR:
-        =f.number_field :ssr ,class:'rate',name: "times", step:"1", required: true, placeholder: "0", onsubmit:"times();"
+        -if @rarity.picup_ssr == 0
+          =f.number_field :ssr ,class:'rate1',name: "times", step:"1",value:"0", onsubmit:"times();", readonly:"readonly"
+        -else
+          =f.number_field :ssr ,class:'rate',name: "times", step:"1", required: true, placeholder: "0", onsubmit:"times();"
         体
         SR:
-        =f.number_field :sr,class:'rate',name: "times1", step:"1", required: true, placeholder: "0", onsubmit:"times();"
+        -if @rarity.picup_sr == 0
+          =f.number_field :sr,class:'rate1',name: "times1", step:"1", value:"0", onsubmit:"times();", readonly:"readonly"
+        - else
+          =f.number_field :sr,class:'rate',name: "times1", step:"1", required: true, placeholder: "0", onsubmit:"times();"
         体
         R:
-        =f.number_field :r ,class:'rate',name: "times2", step:"1", required: true, placeholder: "0", onsubmit:"times();"
+        -if @rarity.picup_r == 0
+          =f.number_field :r ,class:'rate1',name: "times2", step:"1",value:"0", onsubmit:"times();", readonly:"readonly"
+        -else
+          =f.number_field :r ,class:'rate',name: "times2", step:"1", required: true, placeholder: "0", onsubmit:"times();"
         体
         =f.submit'ガチャる', class:'send-btn'
     %input.SSR{:type=>"hidden" , :name=>"SSR", :value=>@rarity.ssr}
