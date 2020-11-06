@@ -36,7 +36,7 @@
               %td   
                 =select.price
                 円
-          =link_to "選択", edit_gacha_path(select.id), class:'btn-select'
+            =link_to "選択", edit_gacha_path(select.id), class:'btn-select'
       -else
         過去に登録された情報はありません
       =link_to "情報入力フォームに戻る", new_gacha_path, class:'btn-back'

@@ -49,18 +49,24 @@ class GachasController < ApplicationController
 
   def create
     @rarity = Rarity.new(rarity_params)
-    if @rarity.ssr + @rarity.sr + @rarity.r != 100
+    if @rarity.price <= 0
+      flash.now[:alert] = "回すガチャの金額は0よりも大きい値を入力してください"
+      render :new 
+    elsif @rarity.price >= 999
+      flash.now[:alert] = "回すガチャの金額1000よりも小さい値を入力してください"
+      render :new 
+    elsif @rarity.ssr + @rarity.sr + @rarity.r != 100
       flash.now[:alert] = "回すガチャの排出率の合計を100にしてください"
-      render :new and return
+      render :new
     elsif @rarity.ssr < @rarity.picup_ssr 
       flash.now[:alert] = "欲しいキャラの排出率が回すガチャより大きいです"
-      render :new and return
+      render :new 
     elsif @rarity.sr < @rarity.picup_sr
       flash.now[:alert] = "欲しいキャラの排出率が回すガチャより大きいです"
-      render :new and return
+      render :new
     elsif @rarity.sr < @rarity.picup_sr
       flash.now[:alert] = "欲しいキャラの排出率が回すガチャより大きいです"
-      render :new and return
+      render :new
     else
       @rarity.save
       redirect_to root_path, notice: 'ガチャ情報が保存されました'
