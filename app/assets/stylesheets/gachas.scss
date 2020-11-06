@@ -80,7 +80,7 @@ body {
         padding-top: 5px;
         background-color: #40E0D0;
         text-decoration: none;
-        color: white;
+        color: black;
       }
       .btn-back{
         width: 300px;
@@ -91,7 +91,7 @@ body {
         padding: 10px;
         background-color: #40E0D0;
         text-decoration: none;
-        color: white
+        color: black;
       }
     } 
   &__edit{
@@ -103,7 +103,7 @@ body {
     color: #fff;
     text-align: center;
     font-size: 30px;
-    width:  820px;
+    width:  860px;
     height: 250px;
 
     .btn-select{
@@ -219,4 +219,9 @@ table.select{
   width: 80px;
   background-color: gray;
   outline: 0;
+}
+th{
+  text-align: center;
+  padding: 4px;
+  color: black;
 }
