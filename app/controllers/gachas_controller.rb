@@ -73,7 +73,6 @@ class GachasController < ApplicationController
     end
   end
 
-
   def result
     @form = params['id'].to_i
     @rarity = Rarity.order(updated_at: :desc).find_by(user_id:current_user)
