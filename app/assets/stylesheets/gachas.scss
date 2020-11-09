@@ -17,12 +17,12 @@ body {
   min-height: 100%;
   &__title{
     color: white;
-    background: rgba(0,0,0,0.9);
+    background: rgba(0,0,0,0.6);
     color: #fff;
     text-align: center;
     margin: auto;
     font-size: 30px;
-    width: 960px;
+    width: 100%;
     margin-top: 30px;
   }
   &__underline{
@@ -52,18 +52,14 @@ body {
   }
   &__select{
       margin: auto;
-      margin-bottom: 110px;
+      margin-bottom: 100px;
       padding: 15px 30px;
-      background: rgba(0,0,0,0.7);
+      background: rgba(0,0,0,0.6);
       color: #fff;
       text-align: center;
       font-size: 30px;
-      width: 100%;
-      justify-content: center;
-      height: 620px;
-      a.send-btn:hover {
-        opacity: 0.5;
-      }
+      width:  1000px;
+      height: 350px;
       .rate{
         width: 80px;
       }
@@ -72,27 +68,34 @@ body {
         margin-top: 10px;
       }
       .btn-select{
+        display: block;
         font-size: 25px;
-        margin: 33px 0;
-        display: inline-block;
-        height: 30px;
-        padding: 10px;
-        padding-top: 5px;
+        width: 50px;
+        height: auto;
         background-color: #40E0D0;
         text-decoration: none;
-        color: black;
+        color: white;
+        margin: auto;
+        padding: 5px;
       }
-      .btn-back{
+      .btn-select:hover{
+        opacity: 0.9;
+      }
+      a.btn-link{
+        display: block;
         width: 300px;
         font-size: 25px;
-        display: inline-block;
-        margin-top: 10px;
-        padding: 10px;
-        padding-top: 5px;
-        height: 30px;
+        margin-top: 310px;
+        margin-left: 350px;
+        height: auto;
+        padding: 5px;
         background-color: #40E0D0;
         text-decoration: none;
-        color: black;
+        color: white;
+        text-decoration: none;
+      }
+      .btn-link:hover{
+        opacity: 0.7;
       }
     } 
   &__edit{
@@ -104,20 +107,21 @@ body {
     color: #fff;
     text-align: center;
     font-size: 30px;
-    width:  860px;
+    width:  850px;
     height: 250px;
 
     .btn-select{
+      display: inline-block;
       margin: 20px 0;
-      width: 100%;
-      height: 30px;
-      padding: 10px;
+      width: 100px;
+      height: auto;
+      padding: 2px;
       background-color: rgb(156, 151, 151);
       text-decoration: none;
       color: white
     }
     .btn-submit{
-      margin: 20px 0;
+      display: inline-block;
       width: 100px;
       height: 50px;
       background-color: #40E0D0;
@@ -125,6 +129,12 @@ body {
       color: white;
       border: none;
       outline: none;
+    }
+    .btn-select:hover{
+      opacity: 0.7;
+    }
+    .btn-submit:hover{
+      opacity: 0.7;
     }
   }
   &__form_index{
@@ -178,24 +188,35 @@ body {
     font-size: 25px;
     margin-bottom: 270px;
   }
-  .btn--orange,
-a.btn--orange {
-  font-size:20px;
-  color: #fff;
-  background-color: #fa709a;
-  outline:0;
-}
-&__form_select{
-  text-align: center;
-}
-.select-btn{
-  width: 100%;
-  height: 30px;
-  background-color: #EFEFEF;
-  text-decoration: none;
-  color: black;
-  padding: 8.5px;
-}
+    .btn--orange {
+    font-size:20px;
+    color: #fff;
+    background-color: #fa709a;
+    outline:0;
+  }
+  .btn--orange:hover{
+    opacity: 0.7;
+  }
+  &__form_select{
+    text-align: center;
+  }
+  .select-btn{
+    width: 100%;
+    height: 30px;
+    background-color: #EFEFEF;
+    text-decoration: none;
+    color: black;
+    padding: 8.5px;
+  }
+  .select-btn:hover{
+    opacity: 0.7;
+  }
+  .reset:hover{
+    opacity: 0.7;
+  }
+  .send-rate-btn:hover{
+    opacity: 0.7;
+  }
 }
 .Editlink{
   text-decoration: none;
@@ -220,9 +241,4 @@ table.select{
   width: 80px;
   background-color: gray;
   outline: 0;
-}
-th{
-  text-align: center;
-  padding: 4px;
-  color: black;
 }

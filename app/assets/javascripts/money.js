@@ -51,8 +51,12 @@ $(function charges(){
 			$('.result_form__3').append("欲しいSSR:" + Number(picup_ssr).toLocaleString() + "<br>\n"); 
 			$('.result_form__3').append("欲しいSR:" + Number(picup_sr).toLocaleString() + "<br>\n"); 
 			$('.result_form__3').append("欲しいR:" + Number(picup_r).toLocaleString() + "<br>\n"); 
-			$('.result_form__3').append(Number(val).toLocaleString() + "円課金して" + money + "回引きました" + "<br>\n"); 
-			$('.result_form__3').append("あなたが欲しいキャラは合計で" + Number(picup_ssr + picup_sr + picup_r).toLocaleString() + "体出ました!!"); 
+			$('.result_form__3').append(Number(val).toLocaleString() + "円課金して" + money + "回引きました" + "<br>\n");
+				if(picup_ssr + picup_sr + picup_r == 0) {
+					$('.result_form__3').append("あなたの欲しいキャラは出ませんでした" +  "<br>\n" + "もう一度挑戦しよう!!")
+				}else{
+					$('.result_form__3').append("あなたが欲しいキャラは合計で" + Number(picup_ssr + picup_sr + picup_r).toLocaleString() + "体出ました!!"); 
+				}
 			}else{
 			$('.result_form__3').append("入力エラー" + "<br>\n" + "あなたの入力した内容に誤りがあります" +  "<br>\n" + val7 + "以上の値を入力してください");
 			}

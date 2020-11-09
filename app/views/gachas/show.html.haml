@@ -4,16 +4,17 @@
     過去の情報一覧(最新５件)
     .gacha_main__select
       -if @selects.present?
-        -@selects.each do |select|
-          %table{:border => "5",class:"select"}
-            %tr{bgcolor:"#40E0D0"}
-              %th SSR
-              %th SR
-              %th R
-              %th 欲しいSSR
-              %th 欲しいSR
-              %th 欲しいR
-              %th 金額
+        %table{:border => "5",class:"select"}
+          %tr{bgcolor:"#40E0D0"}
+            %th SSR
+            %th SR
+            %th R
+            %th 欲しいSSR
+            %th 欲しいSR
+            %th 欲しいR
+            %th 金額
+            %th 
+          -@selects.each do |select|
             %tr
               %td 
                 =select.ssr
@@ -36,9 +37,10 @@
               %td   
                 =select.price
                 円
-            =link_to "選択", edit_gacha_path(select.id), class:'btn-select'
+              %td
+                =link_to "選択", edit_gacha_path(select.id), class:'btn-select'
       -else
         過去に登録された情報はありません
-      =link_to "情報入力フォームに戻る", new_gacha_path, class:'btn-back'
+      =link_to "情報入力フォームに戻る", new_gacha_path, class:"btn-link"
   .result_form__footer
     =render "footer"

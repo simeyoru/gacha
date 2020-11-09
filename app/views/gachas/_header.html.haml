@@ -1,9 +1,14 @@
-.gacha_main__header
-  .gacha_main__header_title
-    = link_to "GachaSimulator2020", root_path, class:"title"
-    .gacha_main__btn 
-      = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
-      = link_to "ユーザー情報編集", edit_user_path(current_user) ,class: 'btn'
-  .gacha_main__header_user
-    name: 
-    = current_user.name
+-if user_signed_in?
+  .gacha_main__header
+    .gacha_main__header_title
+      = link_to "GachaSimulator2020", root_path, class:"title"
+      .gacha_main__btn 
+        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
+        = link_to "ユーザー情報編集", edit_user_path(current_user) ,class: 'btn'
+    .gacha_main__header_user
+      name: 
+      = current_user.name
+-else
+  .gacha_main__header
+    .gacha_main__header_title
+      = link_to "GachaSimulator2020", "#", class:"title"
