@@ -76,6 +76,22 @@ class GachasController < ApplicationController
   def result
     @form = params['id'].to_i
     @rarity = Rarity.order(updated_at: :desc).find_by(user_id:current_user)
+    if @form == 1
+      if params[:times].to_i <= 0
+        flash.now[:alert] ="0以下の値を入力しないでください"
+        return render :form
+      end
+    elsif @form == 2
+      if params[:times].to_i < @rarity.price
+        flash.now[:alert] ="#{@rarity.price}より小さい値を入力しないでください"
+        return render :form
+      end
+    elsif @form == 3
+      if params[:times].to_i == 0 && params[:times1].to_i == 0 && params[:times2].to_i== 0
+        flash.now[:alert] ="欲しいキャラクターの割合を全て０にしないでください"
+        return render :form
+      end
+    end
     if request.path_info != session[:ref]
       session[:ref] = request.path_info
       if params[:times] == "" || nil 

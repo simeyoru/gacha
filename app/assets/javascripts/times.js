@@ -55,11 +55,6 @@ $(function times(){
           count += 1
       }
     }
-      if (val4 == 0 && val5 == 0 && val6 == 0){
-        $('.result_form__4').append("欲しいキャラクターの確率が全て0なのでこのガチャを回すことはできません"); 
-      }else if(val == 0 && val8 == 0 && val9 == 0){
-        $('.result_form__4').append("欲しいキャラクターを入力、または欲しいキャラクターの確率を入力してください"); 
-      }else{
 			$('.result_form__4').append("result" + "<br>\n"); 
 			$('.result_form__4').append("SSR:" + Number(ssr).toLocaleString() + "<br>\n"); 
 			$('.result_form__4').append("SR:" + Number(sr).toLocaleString() + "<br>\n"); 
@@ -69,5 +64,4 @@ $(function times(){
 			$('.result_form__4').append("欲しいSSR:" + Number(count_ssr).toLocaleString() + "<br>\n"); 
 			$('.result_form__4').append("欲しいSR:" + Number(count_sr).toLocaleString() + "<br>\n"); 
       $('.result_form__4').append("欲しいR:" + Number(count_r).toLocaleString() + "<br>\n"); 
-      }
 			})    

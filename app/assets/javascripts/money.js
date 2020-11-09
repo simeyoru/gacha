@@ -43,7 +43,6 @@ $(function charges(){
 				}
 			}
 			//ガチャ結果の表示
-			if(val7 <= val){
 			$('.result_form__3').append("result" + "<br>\n"); 
 			$('.result_form__3').append("SSR:" + Number(ssr).toLocaleString() + "<br>\n"); 
 			$('.result_form__3').append("SR:" + Number(sr).toLocaleString() + "<br>\n"); 
@@ -57,7 +56,4 @@ $(function charges(){
 				}else{
 					$('.result_form__3').append("あなたが欲しいキャラは合計で" + Number(picup_ssr + picup_sr + picup_r).toLocaleString() + "体出ました!!"); 
 				}
-			}else{
-			$('.result_form__3').append("入力エラー" + "<br>\n" + "あなたの入力した内容に誤りがあります" +  "<br>\n" + val7 + "以上の値を入力してください");
-			}
 			})    

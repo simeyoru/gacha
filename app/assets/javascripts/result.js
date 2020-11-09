@@ -20,7 +20,6 @@ $(function result(){
             r = r + 1
       }
     }
-  if(1 <= val){
     $('.result_form__2').append("result"+"<br>\n");
     //ガチャ結果の表示
     $('.result_form__2').append("SSR:" + Number(ssr).toLocaleString() + "<br>\n"); 
@@ -37,7 +36,4 @@ $(function result(){
     $('.result_form__2').append("SSR:" + SSR + "%<br>\n"); 
     $('.result_form__2').append("SR:" + SR + "%<br>\n"); 
     $('.result_form__2').append("R:" + R + "%<br>\n"); 
-  }else{
-    $('.result_form__2').append("入力エラー"+ "<br>\n"+"あなたの入力した内容に誤りがあります"+ "<br>\n"+"0より大きい値を入力してください");
-  }
   })
