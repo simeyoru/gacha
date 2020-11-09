@@ -1,132 +1,129 @@
 body{
- margin: 0px;
- padding: 0;
+  width: auto;
 }
 .edit_main{
-  background: rgba(0,0,0,0.6);
-  width:  100vw;
-  height: 100vh;
   min-width: 800px;
   position: relative;
-  min-height: 100%;
-}
-.AccountPage{
-  padding: 40px 0px 0 60px;
-  padding-left: 380px;
-  min-width: 880px;
-}
-.AccountPage__title {
-  width: 40%;
-  font-size: 14px;
-  font-weight: 200;
+  background: rgba(0,0,0,0.6);
+  min-height: 720px;
 
-  h2 {
-    color: white;
-    letter-spacing: 3px;
-    font-size: 40px;
-    font-weight: bold;
-    &:after {
-      content: "";
-      display: block;
-      width: 60px;
-      margin-top: 5px;
+  .AccountPage{
+    padding-left: 450px;
+  }
+  .AccountPage__title {
+    width: 100%;
+    font-size: 14px;
+    font-weight: 200;
+
+    h2 {
+      color: white;
+      letter-spacing: 3px;
+      font-size: 40px;
+      font-weight: bold;
+      &:after {
+        content: "";
+        display: block;
+        width: 60px;
+        margin-top: 5px;
+      }
+    }
+
+    .Button {
+      font-size: 20px;
+      color: #fff;
+      background-color: #24978e;
+    }
+  }
+
+  .AccountPage__form {
+    width: 40%;
+  }
+
+  .FormField {
+    margin-bottom: 10px;
+    &__label--normal {
+      color: white;
+      padding: 10px 0;
+      letter-spacing: 1px;
+      font-size: 20px;
+      font-weight: 200;
+      i {
+        font-size: 11px;
+      }
+      .field_with_errors {
+        display: inline-block;
+        color: #d65f4c;
+        font-weight: 400;
+      }
+    }
+    &__input--normal {
+      input {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 10px;
+        letter-spacing: 1px;
+      }
+      .field_with_errors {
+        position: relative;
+
+        &:after {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          width: 5px;
+          background-color: #d65f4c;
+        }
+      }
     }
   }
 
   .Button {
-    font-size: 20px;
-    color: #fff;
-    background-color: #24978e;
-  }
-}
-
-.AccountPage__form {
-  width: 50%;
-}
-
-.FormField {
-  margin-bottom: 10px;
-  &__label--normal {
-    color: white;
-    padding: 10px 0;
+    display: inline-block;
+    height: 50px;
+    padding: 0 30px;
+    line-height: 50px;
     letter-spacing: 1px;
+    text-align: center;
+    border: none;
+    border-radius: 2px;
+    text-decoration: none;
+  }
+
+  .UserButton {
+    margin-top: 20px;
+    color: #fff;
+    background-color: #38aef0;
     font-size: 20px;
-    font-weight: 200;
-    i {
-      font-size: 11px;
-    }
-    .field_with_errors {
-      display: inline-block;
+    margin-left: 300px;
+  }
+
+
+  #error_explanation {
+    margin: 20px 0;
+    padding: 20px 30px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+
+    h2 {
+      margin-bottom: 10px;
       color: #d65f4c;
-      font-weight: 400;
+      font-size: 14px;
     }
-  }
-  &__input--normal {
-    input {
-      box-sizing: border-box;
-      width: 100%;
-      padding: 10px;
-      letter-spacing: 1px;
+
+    ul {
+      margin: 0;
+      padding-left: 17px;
+      list-style: square;
     }
-    .field_with_errors {
-      position: relative;
 
-      &:after {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        width: 5px;
-        background-color: #d65f4c;
-      }
+    li {
+      margin: 0;
+      padding: 0;
+      font-size: 17px;
+      color: red;
     }
-  }
-}
-
-.Button {
-  display: inline-block;
-  height: 50px;
-  padding: 0 30px;
-  line-height: 50px;
-  letter-spacing: 1px;
-  text-align: center;
-  border: none;
-  border-radius: 2px;
-  text-decoration: none;
-}
-
-.UserButton {
-  margin-top: 20px;
-  color: #fff;
-  background-color: #38aef0;
-  font-size: 20px;
-  margin-left: 300px;
-}
-
-
-#error_explanation {
-  margin: 20px 0;
-  padding: 20px 30px;
-  border: 1px solid #ddd;
-  border-radius: 2px;
-
-  h2 {
-    margin-bottom: 10px;
-    color: #d65f4c;
-    font-size: 14px;
-  }
-
-  ul {
-    margin: 0;
-    padding-left: 17px;
-    list-style: square;
-  }
-
-  li {
-    margin: 0;
-    padding: 0;
-    font-size: 13px;
   }
 }

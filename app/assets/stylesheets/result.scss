@@ -9,6 +9,7 @@ body {
   position: absolute;
   animation: fadeOut 6s ease 0.2s 1 forwards;
   min-height: fit-content;
+  background-size:contain;
   .image{
     height: 710px;
     max-width: 100%;

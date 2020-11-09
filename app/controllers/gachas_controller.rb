@@ -52,10 +52,10 @@ class GachasController < ApplicationController
     if @rarity.price <= 0
       flash.now[:alert] = "回すガチャの金額は0よりも大きい値を入力してください"
       render :new 
-    elsif @rarity.price >= 999
+    elsif @rarity.price >= 1000
       flash.now[:alert] = "回すガチャの金額1000よりも小さい値を入力してください"
       render :new 
-    elsif @rarity.ssr + @rarity.sr + @rarity.r != 100
+    elsif (@rarity.ssr + @rarity.sr + @rarity.r).round(3) != 100
       flash.now[:alert] = "回すガチャの排出率の合計を100にしてください"
       render :new
     elsif @rarity.ssr < @rarity.picup_ssr 
