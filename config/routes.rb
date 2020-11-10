@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users,controllers:{    
+     registrations: "users/registrations"   
+  }
   root "gachas#index"
   resources :gachas, only: [:index, :new, :create, :show, :update, :edit]
   post  "/gachas/edit" ,to: "gachas#edit"
