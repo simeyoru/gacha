@@ -4,7 +4,7 @@ class GachasController < ApplicationController
   end
 
   def show
-    @selects = Rarity.order(updated_at: :desc).where(user_id:current_user).limit(5)
+    @selects = Rarity.order(updated_at: :desc).where(user_id:current_user).limit(5).offset(1)
     @button = Rarity.order(updated_at: :desc).where(user_id:current_user).limit(1)
   end
 
@@ -17,7 +17,7 @@ class GachasController < ApplicationController
     @selects = Rarity.order(updated_at: :desc).where(user_id:current_user).limit(5)
     @rarity = Rarity.find(params[:id])
     @rarity_basic = @rarity.ssr
-    @rarity.ssr = 200              #一旦ssrを10に変更
+    @rarity.ssr = 200              #一旦ssrを200に変更
     if @rarity.update(rarity_params) 
       @rarity.ssr = @rarity_basic     #元の値に変更
       @rarity.update(rarity_params) 
@@ -51,6 +51,9 @@ class GachasController < ApplicationController
       render :new 
     elsif @rarity.ssr < 0 || @rarity.sr< 0 || @rarity.r< 0 
       flash.now[:alert] = "排出率を0より小さくしないでください"
+      render :new 
+    elsif @rarity.picup_ssr < 0 || @rarity.picup_sr< 0 || @rarity.picup_r< 0 
+      flash.now[:alert] = "欲しいキャラの確率を0より小さくしないでください"
       render :new 
     elsif @rarity.price >= 1000
       flash.now[:alert] = "回すガチャの金額1000よりも小さい値を入力してください"
