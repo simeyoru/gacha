@@ -1,20 +1,17 @@
-body{
-  width: auto;
-}
 .edit_main{
   min-width: 800px;
   position: relative;
   background: rgba(0,0,0,0.6);
   min-height: 720px;
-
+  width: 100%;
   .AccountPage{
-    padding-left: 450px;
+    // padding-left: 450px;
   }
   .AccountPage__title {
     width: 100%;
     font-size: 14px;
     font-weight: 200;
-
+    text-align: center;
     h2 {
       color: white;
       letter-spacing: 3px;
@@ -27,18 +24,16 @@ body{
         margin-top: 5px;
       }
     }
-
     .Button {
       font-size: 20px;
       color: #fff;
       background-color: #24978e;
     }
   }
-
   .AccountPage__form {
     width: 40%;
+    margin: 0 auto;
   }
-
   .FormField {
     margin-bottom: 10px;
     &__label--normal {
@@ -65,7 +60,6 @@ body{
       }
       .field_with_errors {
         position: relative;
-
         &:after {
           content: "";
           display: block;
@@ -79,7 +73,6 @@ body{
       }
     }
   }
-
   .Button {
     display: inline-block;
     height: 50px;
@@ -91,16 +84,20 @@ body{
     border-radius: 2px;
     text-decoration: none;
   }
-
   .UserButton {
     margin-top: 20px;
     color: #fff;
     background-color: #38aef0;
     font-size: 20px;
-    margin-left: 300px;
+    margin-left: 361px;
   }
-
-
+  .UserSubmit{
+    margin-top: 20px;
+    color: #fff;
+    background-color: #38aef0;
+    font-size: 20px;
+    margin-left: 402px;
+  }
   #error_explanation {
     margin: 20px 0;
     padding: 20px 30px;

@@ -1,24 +1,23 @@
 class GachasController < ApplicationController
+  before_action :form_params, only:[:show, :edit, :update, :form, :new, :result]
   def index
   end
 
   def show
-    @form = params['id'].to_i
     @selects = Rarity.order(updated_at: :desc).where(user_id:current_user).limit(5)
+    @button = Rarity.order(updated_at: :desc).where(user_id:current_user).limit(1)
   end
 
   def edit
-    @form = params['id'].to_i
     @rarity = Rarity.find(params[:id])
     @selects = Rarity.find(@rarity.id)
   end
 
   def update
-    @form = params['id'].to_i
     @selects = Rarity.order(updated_at: :desc).where(user_id:current_user).limit(5)
     @rarity = Rarity.find(params[:id])
     @rarity_basic = @rarity.ssr
-    @rarity.ssr = 10              #一旦ssrを10に変更
+    @rarity.ssr = 200              #一旦ssrを10に変更
     if @rarity.update(rarity_params) 
       @rarity.ssr = @rarity_basic     #元の値に変更
       @rarity.update(rarity_params) 
@@ -32,7 +31,6 @@ class GachasController < ApplicationController
     @rarity = Rarity.order(updated_at: :desc).find_by(user_id:current_user)
     if @rarity.present?
       if @rarity.user_id == current_user.id
-        @form = params['id'].to_i
         session[:ref] = nil
       else
         redirect_to root_path, alert:"ガチャ情報を入力してください"
@@ -43,7 +41,6 @@ class GachasController < ApplicationController
   end
 
   def new
-    @form = params['id'].to_i
     @rarity = Rarity.new
   end
 
@@ -51,6 +48,9 @@ class GachasController < ApplicationController
     @rarity = Rarity.new(rarity_params)
     if @rarity.price <= 0
       flash.now[:alert] = "回すガチャの金額は0よりも大きい値を入力してください"
+      render :new 
+    elsif @rarity.ssr < 0 || @rarity.sr< 0 || @rarity.r< 0 
+      flash.now[:alert] = "排出率を0より小さくしないでください"
       render :new 
     elsif @rarity.price >= 1000
       flash.now[:alert] = "回すガチャの金額1000よりも小さい値を入力してください"
@@ -64,7 +64,7 @@ class GachasController < ApplicationController
     elsif @rarity.sr < @rarity.picup_sr
       flash.now[:alert] = "欲しいキャラの排出率が回すガチャより大きいです"
       render :new
-    elsif @rarity.sr < @rarity.picup_sr
+    elsif @rarity.r < @rarity.picup_r
       flash.now[:alert] = "欲しいキャラの排出率が回すガチャより大きいです"
       render :new
     else
@@ -74,7 +74,6 @@ class GachasController < ApplicationController
   end
 
   def result
-    @form = params['id'].to_i
     @rarity = Rarity.order(updated_at: :desc).find_by(user_id:current_user)
     if request.path_info != session[:ref]
       session[:ref] = request.path_info
@@ -108,6 +107,9 @@ class GachasController < ApplicationController
   def rarity_params
     params.permit(:ssr, :sr, :r, :picup_ssr, :picup_sr, :picup_r, :price).merge(user_id: current_user.id)
   end
+
+  def form_params
+    @form = params['id'].to_i
+  end
+
 end
-
-
