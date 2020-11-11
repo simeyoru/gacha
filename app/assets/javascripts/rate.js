@@ -1,56 +1,27 @@
-// $(function(){
-//   function buildHTML(message){
-//     if ( message.image ) {
-//       let html = 
-//       `<div class="gacha_main__rate">
-//       <button class="btn btn--orange btn--radius" onclick="rate()" type="button">
-//       提供割合<br>
-//       </button>
-//       </div>`
-//       let html =
-//       `<div class="gacha_main__rate">
-//       <button class="btn btn--orange btn--radius" onclick="rate()" type="button">
-//       提供割合<br>
-//       </button>
-//       <div class="ddd">SSR:${val1}}<br>
-//       </div><div class="ddd">SR:${val2}<br>
-//       </div><div class="ddd">R:${val3}<br>
-//       </div></div>`
-//     };
-//   }
-  // var rate = function () {
-  //   var val1 = $('.SSR').val();
-  //   var val2 = $('.SR').val();
-  //   var val3 = $('.R').val();
-  //   console.log("111")
-  //   $(this).toggleClass("clicked");
-  //   $('.ddd').remove();
-  //   $('.gacha_main__rate').append("<div class= 'ddd'>"+"SSR:"+val1+"%<br>\n</div>"); 
-  //   $('.gacha_main__rate').append("<div class= 'ddd'>"+"SR:"+val2+"%<br>\n</div>"); 
-  //   $('.gacha_main__rate').append("<div class= 'ddd'>"+"R:"+val3+"%<br>\n</div>"); 
-  // }
-// });
-
-
-  var rate = function () {
-    var val1 = $('.SSR').val();
-    var val2 = $('.SR').val();
-    var val3 = $('.R').val();
-
+var rate = function () {
+  if($(".gacha_main__rate").find(".ddd").length){
     $('.ddd').remove();
-    $('.gacha_main__rate').append("<div class= 'ddd'>"+"SSR:"+val1+"%<br>\n</div>"); 
-    $('.gacha_main__rate').append("<div class= 'ddd'>"+"SR:"+val2+"%<br>\n</div>"); 
-    $('.gacha_main__rate').append("<div class= 'ddd'>"+"R:"+val3+"%<br>\n</div>"); 
+  }else{
+  var val1 = $('.SSR').val();
+  var val2 = $('.SR').val();
+  var val3 = $('.R').val();
+  
+  $('.btn--radius').append("<div class= 'ddd'>"+"SSR:"+val1+"%<br>\n</div>"); 
+  $('.btn--radius').append("<div class= 'ddd'>"+"SR:"+val2+"%<br>\n</div>"); 
+  $('.btn--radius').append("<div class= 'ddd'>"+"R:"+val3+"%<br>\n</div>"); 
   }
+}
 
-  var pic = function () {
-    var val1 = $('.picup_ssr').val();
-    var val2 = $('.picup_sr').val();
-    var val3 = $('.picup_r').val();
+var pic = function () {
+  if($(".gacha_main__rate").find(".add").length){
+    $('.add').remove();
+  }else{
+  var val1 = $('.picup_ssr').val();
+  var val2 = $('.picup_sr').val();
+  var val3 = $('.picup_r').val();
 
-    $('.ddd').remove();
-    $('.gacha_main__rate').append("<div class= 'ddd'>"+"SSR:"+val1+"%<br>\n</div>"); 
-    $('.gacha_main__rate').append("<div class= 'ddd'>"+"SR:"+val2+"%<br>\n</div>"); 
-    $('.gacha_main__rate').append("<div class= 'ddd'>"+"R:"+val3+"%<br>\n</div>"); 
+  $('.btn--radius').append("<div class= 'add'>"+"SSR:"+val1+"%<br>\n</div>"); 
+  $('.btn--radius').append("<div class= 'add'>"+"SR:"+val2+"%<br>\n</div>"); 
+  $('.btn--radius').append("<div class= 'add'>"+"R:"+val3+"%<br>\n</div>"); 
   }
-  // });
+}

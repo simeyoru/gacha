@@ -34,7 +34,7 @@
           %td   
             =@selects.price
             円
-    = form_with url:gacha_path(@selects.id), method: :patch, local: true do |f|
+    = form_with(url:gacha_path(@selects.id),model: @rarity, method: :patch, local: true) do |f|
       =link_to "いいえ",gacha_path(current_user), class:'btn-select'
       =f.submit "はい", class:'btn-submit'
   .result_form__footer
