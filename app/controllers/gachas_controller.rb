@@ -1,5 +1,6 @@
 class GachasController < ApplicationController
   before_action :form_params, only:[:show, :edit, :update, :form, :new, :result]
+
   def index
   end
 
@@ -16,15 +17,8 @@ class GachasController < ApplicationController
   def update
     @selects = Rarity.order(updated_at: :desc).where(user_id:current_user).limit(5)
     @rarity = Rarity.find(params[:id])
-    @rarity_basic = @rarity.ssr
-    @rarity.ssr = 200              #一旦ssrを200に変更
-    if @rarity.update(rarity_params) 
-      @rarity.ssr = @rarity_basic     #元の値に変更
-      @rarity.update(rarity_params) 
-      redirect_to root_path, notice: 'ガチャ情報を変更しました'
-    else
-      render :show
-    end
+    @rarity.touch
+    redirect_to root_path, notice: 'ガチャ情報を変更しました'
   end
   
   def form
@@ -100,6 +94,19 @@ class GachasController < ApplicationController
         redirect_to form_path
       else
         if @form == 3
+          if params[:times].present? 
+            if params[:times] == 0
+              render :form
+            end
+          elsif params[:times1].present? 
+            if params[:times1] == 0
+              render :form
+            end
+          elsif params[:times2].present? 
+            if params[:times2] == "0"
+              render form_path
+            end
+          end
           @val = params.require(:times)
           @val2 = params.require(:times1)
           @val3 = params.require(:times2)
@@ -124,7 +131,7 @@ class GachasController < ApplicationController
 
   private
   def rarity_params
-    params.permit(:ssr, :sr, :r, :picup_ssr, :picup_sr, :picup_r, :price).merge(user_id: current_user.id)
+    params.require(:rarity).permit(:ssr, :sr, :r, :picup_ssr, :picup_sr, :picup_r, :price).merge(user_id: current_user.id)
   end
 
   def form_params

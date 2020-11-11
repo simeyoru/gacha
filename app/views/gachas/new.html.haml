@@ -1,7 +1,7 @@
 .gacha_main
   = render "header"
   .gacha_main__form_rate
-    =form_with(url: gachas_path, class: "Form", id: "form", local: true) do |f|
+    =form_with(url: gachas_path, model: @rarity, class: "Form", id: "form", local: true) do |f|
       %p 回すガチャの排出率を入力してください
       SSR:
       =f.number_field :ssr ,class:'rate', step:"0.1", required: true, placeholder: "0"
