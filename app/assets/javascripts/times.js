@@ -76,4 +76,5 @@ $(function times(){
       if (val9 != 0){
         append("R",count_sr);
       }
-			})    
+      })    
+      
