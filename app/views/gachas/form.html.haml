@@ -20,19 +20,19 @@
         -if @rarity.picup_ssr == 0
           =f.number_field :ssr ,class:'rate1',name: "times", step:"1",value:"0", onsubmit:"times();", readonly:"readonly"
         -else
-          =f.number_field :ssr ,class:'rate',name: "times", step:"1", required: true, placeholder: "0", onsubmit:"times();"
+          =f.number_field :ssr ,class:'rate',name: "times",max:"1000", step:"1", required: true, placeholder: "0", onsubmit:"times();"
         体
         SR:
         -if @rarity.picup_sr == 0
           =f.number_field :sr,class:'rate1',name: "times1", step:"1", value:"0", onsubmit:"times();", readonly:"readonly"
         - else
-          =f.number_field :sr,class:'rate',name: "times1", step:"1", required: true, placeholder: "0", onsubmit:"times();"
+          =f.number_field :sr,class:'rate',name: "times1",max:"1000", step:"1", required: true, placeholder: "0", onsubmit:"times();"
         体
         R:
         -if @rarity.picup_r == 0
           =f.number_field :r ,class:'rate1',name: "times2", step:"1",value:"0", onsubmit:"times();", readonly:"readonly"
         -else
-          =f.number_field :r ,class:'rate',name: "times2", step:"1", required: true, placeholder: "0", onsubmit:"times();"
+          =f.number_field :r ,class:'rate',name: "times2",max:"1000", step:"1", required: true, placeholder: "0", onsubmit:"times();"
         体
         =f.submit'ガチャる', class:'send-btn'
     %input.SSR{:type=>"hidden" , :name=>"SSR", :value=>@rarity.ssr}

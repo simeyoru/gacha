@@ -7,12 +7,14 @@ body {
 }
 .result{
   position: absolute;
-  animation: fadeOut 6s ease 0.2s 1 forwards;
+  animation: fadeOut 2s ease 1.0s 1 forwards;
   min-height: fit-content;
-  background-size:contain;
   .image{
-    height: 710px;
-    max-width: 100%;
+    width: 100vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
   }
 }
 @keyframes fadeOut {
@@ -66,20 +68,138 @@ body {
     display: none;
   }
   &__2{
-    color: orange;
+    color: white;
     text-align: center; 
     font-size: 35px;
     margin-top: auto;
     margin-bottom: auto;
+    line-height: 45px;
+    .result_font1{
+      font-family: 'Goldman', cursive;
+      text-transform: uppercase;
+      background: linear-gradient(to right, #f00 0%, #f80 14.28%, #dd0 28.56%, #0d0 42.85%, #0dd 57.14%, #00f 71.42%, #e0e 85.71%, #f00 100%) 0% center / 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: example 4s linear infinite;
+      font-size: 45px;
+    }
+    @keyframes example {
+      to { background-position-x: 200%; }
+    }
+    .result_font2{
+      font-family: 'Goldman', cursive;
+      color: transparent;
+      background: repeating-linear-gradient(0deg, #B67B03 0.1em, #DAAF08 0.2em, #FEE9A0 0.3em, #DAAF08 0.4em, #B67B03 0.5em); 
+      -webkit-background-clip: text;
+      font-size: 45px;
+      animation: glow .8s infinite alternate;
+    }
+    
+      @keyframes glow {
+          to {
+              text-shadow: 0 0 10px #fff;
+          }
+        }
+    .result_font3{
+      font-family: 'Goldman', cursive;
+      color: transparent;
+      background: repeating-linear-gradient(0deg, #757575 0.1em, #9E9E9E 0.2em, #E8E8E8 0.3em, #9E9E9E 0.4em, #757575 0.5em); 
+      -webkit-background-clip: text;
+      font-size: 45px;
+    }
   }
   &__3{
-    color: orange;
+    color: white;
     text-align: center; 
     font-size: 35px;
+    line-height: 45px;
+    .result_font1{
+      font-family: 'Goldman', cursive;
+      text-transform: uppercase;
+      background: linear-gradient(to right, #f00 0%, #f80 14.28%, #dd0 28.56%, #0d0 42.85%, #0dd 57.14%, #00f 71.42%, #e0e 85.71%, #f00 100%) 0% center / 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: example 4s linear infinite;
+      font-size: 45px;
+    }
+    @keyframes example {
+      to { background-position-x: 200%; }
+    }
+    .result_font2{
+      font-family: 'Goldman', cursive;
+      color: transparent;
+      background: repeating-linear-gradient(0deg, #B67B03 0.1em, #DAAF08 0.2em, #FEE9A0 0.3em, #DAAF08 0.4em, #B67B03 0.5em); 
+      -webkit-background-clip: text;
+      font-size: 45px;
+      animation: glow .8s infinite alternate;
+    }
+    
+      @keyframes glow {
+          to {
+              text-shadow: 0 0 10px #fff;
+          }
+      }
+    .result_font3{
+      font-family: 'Goldman', cursive;
+      color: transparent;
+      background: repeating-linear-gradient(0deg, #757575 0.1em, #9E9E9E 0.2em, #E8E8E8 0.3em, #9E9E9E 0.4em, #757575 0.5em); 
+      -webkit-background-clip: text;
+      font-size: 45px;
+      animation: glow1 .8s infinite alternate;
+    }
+    
+      @keyframes glow1 {
+          to {
+              text-shadow: 0 0 10px rgba(235, 223, 223, 0.5);
+          }
+        }
+    
   }
   &__4{
-    color: orange;
+    color: white;
     text-align: center; 
     font-size: 35px;
+    line-height: 45px;
+    .result_font_SSR{
+      font-family: 'Goldman', cursive;
+      text-transform: uppercase;
+      background: linear-gradient(to right, #f00 0%, #f80 14.28%, #dd0 28.56%, #0d0 42.85%, #0dd 57.14%, #00f 71.42%, #e0e 85.71%, #f00 100%) 0% center / 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: example 4s linear infinite;
+      font-size: 45px;
+    }
+    @keyframes example {
+      to { background-position-x: 200%; }
+    }
+    .result_font_SR{
+      font-family: 'Goldman', cursive;
+      color: transparent;
+      background: repeating-linear-gradient(0deg, #B67B03 0.1em, #DAAF08 0.2em, #FEE9A0 0.3em, #DAAF08 0.4em, #B67B03 0.5em); 
+      -webkit-background-clip: text;
+      font-size: 45px;
+      animation: glow .8s infinite alternate;
+    }
+    
+      @keyframes glow {
+          to {
+              text-shadow: 0 0 10px #fff;
+          }
+      }
+      
+    .result_font_R{
+      font-family: 'Goldman', cursive;
+      color: transparent;
+      background: repeating-linear-gradient(0deg, #757575 0.1em, #9E9E9E 0.2em, #E8E8E8 0.3em, #9E9E9E 0.4em, #757575 0.5em); 
+      -webkit-background-clip: text;
+      font-size: 45px;
+      animation: glow1 .8s infinite alternate;
+    }
+    
+    @keyframes glow1 {
+        to {
+            text-shadow: 0 0 10px rgba(235, 223, 223, 0.5);
+        }
+    }
   }
 }

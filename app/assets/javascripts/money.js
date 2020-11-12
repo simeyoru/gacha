@@ -44,13 +44,13 @@ $(function charges(){
 			}
 			//ガチャ結果の表示
 			$('.result_form__3').append("result" + "<br>\n"); 
-			$('.result_form__3').append("SSR:" + Number(ssr).toLocaleString() + "<br>\n"); 
-			$('.result_form__3').append("SR:" + Number(sr).toLocaleString() + "<br>\n"); 
-			$('.result_form__3').append("R:" + Number(r).toLocaleString()+ "<br>\n"); 
-			$('.result_form__3').append("欲しいSSR:" + Number(picup_ssr).toLocaleString() + "<br>\n"); 
-			$('.result_form__3').append("欲しいSR:" + Number(picup_sr).toLocaleString() + "<br>\n"); 
-			$('.result_form__3').append("欲しいR:" + Number(picup_r).toLocaleString() + "<br>\n"); 
-			$('.result_form__3').append(Number(val).toLocaleString() + "円課金して" + money + "回引きました" + "<br>\n");
+			$('.result_form__3').append("<span class= 'result_font1'>" +"SSR:"+ "</span>" + Number(ssr).toLocaleString() + "<br>\n"); 
+			$('.result_form__3').append("<span class= 'result_font2'>" +"SR:"+ "</span>" + Number(sr).toLocaleString() + "<br>\n"); 
+			$('.result_form__3').append("<span class= 'result_font3'>" +"R:"+ "</span>" + Number(r).toLocaleString()+ "<br>\n"); 
+			$('.result_form__3').append("欲しい"+"<span class= 'result_font1'>" +"SSR:"+ "</span>" + Number(picup_ssr).toLocaleString() + "<br>\n"); 
+			$('.result_form__3').append("欲しい"+"<span class= 'result_font2'>" +"SR:"+ "</span>" + Number(picup_sr).toLocaleString() + "<br>\n"); 
+			$('.result_form__3').append("欲しい"+"<span class= 'result_font3'>" +"R:"+ "</span>" + Number(picup_r).toLocaleString() + "<br>\n"); 
+			$('.result_form__3').append(Number(val).toLocaleString() + "円課金して"+ "</span>" + money + "回引きました" + "<br>\n");
 				if(picup_ssr + picup_sr + picup_r == 0) {
 					$('.result_form__3').append("あなたの欲しいキャラは出ませんでした" +  "<br>\n" + "もう一度挑戦しよう!!")
 				}else{

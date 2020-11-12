@@ -3,7 +3,6 @@
   .AccountPage
     .AccountPage__title
       %h2 アカウント作成
-      = render "devise/shared/links"
     .AccountPage__form
       = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
         .FormField
@@ -28,4 +27,5 @@
           .FormField__input--normal
             = f.password_field :password_confirmation, autocomplete: "off"
         .actions
+          = render "devise/shared/links"
           = f.submit "決定", class: 'Button UserSubmit'
