@@ -76,16 +76,38 @@ class GachasController < ApplicationController
       if params[:times].to_i <= 0
         flash.now[:alert] ="0以下の値を入力しないでください"
         return render :form
+    if @form == 1
+      if params[:times].to_i <= 0
+        flash.now[:alert] ="0以下の値を入力しないでください"
+        render :form
       end
     elsif @form == 2
       if params[:times].to_i < @rarity.price
         flash.now[:alert] ="#{@rarity.price}より小さい値を入力しないでください"
         return render :form
+        render :form
       end
     elsif @form == 3
       if params[:times].to_i == 0 && params[:times1].to_i == 0 && params[:times2].to_i== 0
         flash.now[:alert] ="欲しいキャラクターの割合を全て０にしないでください"
         return render :form
+      end
+    end
+      elsif params[:times].present? 
+        if params[:times].to_i < 0
+          flash.now[:alert] = "0未満の値を入力しないでください"
+          return render :form
+        end
+      elsif params[:times1].present? 
+        if params[:times1].to_i < 0
+          flash.now[:alert] = "0未満の値を入力しないでください"
+          return render :form
+        end
+      elsif params[:times2].present? 
+        if params[:times2].to_i < 0
+          flash.now[:alert] = "0未満の値を入力しないでください"
+          return render :form
+        end
       end
     end
     if request.path_info != session[:ref]
@@ -94,19 +116,6 @@ class GachasController < ApplicationController
         redirect_to form_path
       else
         if @form == 3
-          if params[:times].present? 
-            if params[:times] == 0
-              render :form
-            end
-          elsif params[:times1].present? 
-            if params[:times1] == 0
-              render :form
-            end
-          elsif params[:times2].present? 
-            if params[:times2] == "0"
-              render form_path
-            end
-          end
           @val = params.require(:times)
           @val2 = params.require(:times1)
           @val3 = params.require(:times2)

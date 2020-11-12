@@ -22,18 +22,26 @@ $(function result(){
     }
     $('.result_form__2').append("result"+"<br>\n");
     //ガチャ結果の表示
-    $('.result_form__2').append("SSR:" + Number(ssr).toLocaleString() + "<br>\n"); 
-    $('.result_form__2').append("SR:" + Number(sr).toLocaleString() + "<br>\n"); 
-    $('.result_form__2').append("R:" + Number(r).toLocaleString()+ "<br>\n"); 
+    $('.result_form__2').append("<span class= 'result_font1'>" + "SSR"+ "</span>"+":"+ Number(ssr).toLocaleString() +"<br>\n"); 
+    $('.result_form__2').append("<span class= 'result_font2'>" + "SR"+ "</span>"+":" + Number(sr).toLocaleString() + "<br>\n"); 
+    $('.result_form__2').append("<span class= 'result_font3'>" + "R"+ "</span>"+":" + Number(r).toLocaleString()+ "<br>\n"); 
 
     $('.result_form__2').append("確率" + "<br>\n"); 
     //ガチャ結果の確率の計算
     SSR = ((ssr / val) * 100).toFixed(1);
     SR =  ((sr / val) * 100).toFixed(1);
     R =   ((r / val) * 100).toFixed(1);
-
+  if(val <= 0){
     //ガチャ結果の確率の表示
     $('.result_form__2').append("SSR:" + SSR + "%<br>\n"); 
     $('.result_form__2').append("SR:" + SR + "%<br>\n"); 
     $('.result_form__2').append("R:" + R + "%<br>\n"); 
+
+  }else{
+    $('.result_form__2').append("入力エラー"+ "<br>\n"+"あなたの入力した内容に誤りがあります"+ "<br>\n"+"0より大きい値を入力してください");
+  }
+    $('.result_form__2').append("<span class= 'result_font1'>" + "SSR" + "</span>"+":"+ SSR + "%<br>\n"); 
+    $('.result_form__2').append("<span class= 'result_font2'>" + "SR" + "</span>"+":"+ SR + "%<br>\n"); 
+    $('.result_form__2').append("<span class= 'result_font3'>" + "R" + "</span>"+":"+ R + "%<br>\n"); 
+
   })
