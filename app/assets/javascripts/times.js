@@ -27,13 +27,12 @@ $(function times(){
     count_ssr = 0   //ssrのカウント
     count_sr = 0    //srのカウント
     count_r = 0     //rのカウント
-    function append(rarity, count){
-      return $('.result_form__4').append("欲しい" + `<span class= 'result_font_${rarity}'>`+`${rarity}`+ "</span>"+ ":" + Number(count).toLocaleString() + "<br>\n"); 
-    }
     function append_count(rarity, count){
       return $('.result_form__4').append(`<span class= 'result_font_${rarity}'>`+`${rarity}`+ "</span>" + ":" + Number(count).toLocaleString() + "<br>\n"); 
     }
-
+    function append(rarity, count){
+      return $('.result_form__4').append("欲しい" + `<span class= 'result_font_${rarity}'>`+`${rarity}`+ "</span>"+ ":" + Number(count).toLocaleString() + "<br>\n"); 
+    }
     for (let time = 0; time < 1000000; time++) {
       if (val4 == 0 && val5 == 0 && val6 == 0){
         break;
@@ -44,17 +43,17 @@ $(function times(){
       }else{
         if(rarity <= val1){											//ssr
           ssr += 1
-          if (rarity <= val4 && val != 0){
+          if (rarity <= val4){
             count_ssr += 1
           }
         }else if (rarity <= val1 + val2){			//sr
             sr += 1
-            if (rarity <= val1 + val5 && val8 != 0){
+            if (rarity <= val1 + val5){
               count_sr += 1
             }       
         }else if(rarity <= val1 + val2 + val3){		//r
           r += 1
-          if (rarity <= val1 + val2 + val6 && val9 != 0){
+          if (rarity <= val1 + val2 + val6){
             count_r += 1
           }
         }
@@ -62,19 +61,19 @@ $(function times(){
       }
     }
 			$('.result_form__4').append("result" + "<br>\n"); 
-      append_count("SSR",ssr)
-			append_count("SR",sr)
-      append_count("R",r)
+      append_count("SSR", ssr)
+			append_count("SR", sr)
+      append_count("R", r)
       $('.result_form__4').append(Number(count).toLocaleString() + "回引くとあなたが欲しいキャラは全て当たるかも？" + "<br>\n"); 
-      $('.result_form__4').append("課金する金額は" + Number(count * val7 ).toLocaleString()+ "円です" + "<br>\n");
+      $('.result_form__4').append("課金する金額は" + Number( count * val7 ).toLocaleString()+ "円です" + "<br>\n");
       if (val != 0){
-        append("SSR",count_ssr);
+        append("SSR", count_ssr);
       }
       if (val8 != 0){
-        append("SR",count_sr);
+        append("SR", count_sr);
       }
       if (val9 != 0){
-        append("R",count_sr);
+        append("R", count_r);
       }
       })    
       

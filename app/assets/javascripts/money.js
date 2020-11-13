@@ -15,13 +15,20 @@ $(function charges(){
 		val5 = Number(val5);
 		val6 = Number(val6);
 		val7 = Number(val7);
-				ssr = 0
-				sr = 0
-				r = 0
-				picup_ssr = 0
-				picup_sr = 0
-				picup_r = 0
-				money = Math.floor(val / val7)
+		ssr = 0
+		sr = 0
+		r = 0
+		picup_ssr = 0
+		picup_sr = 0
+		picup_r = 0
+		money = Math.floor(val / val7)
+
+		function append_count(rarity, count){
+			return $('.result_form__3').append(`<span class= 'result_font_${rarity}'>`+`${rarity}`+ "</span>" + ":" + Number(count).toLocaleString() + "<br>\n"); 
+		}
+		function append(rarity, count){
+			return $('.result_form__3').append("欲しい" + `<span class= 'result_font_${rarity}'>`+`${rarity}`+ "</span>"+ ":" + Number(count).toLocaleString() + "<br>\n"); 
+		}
 			for (let time = 0; time < money; time++) {
 				rarity =  Math.random() * 100 ;  //1~100の範囲でランダムに数字を取得
 				if(rarity <= val1){											//ssr
@@ -44,12 +51,12 @@ $(function charges(){
 			}
 			//ガチャ結果の表示
 			$('.result_form__3').append("result" + "<br>\n"); 
-			$('.result_form__3').append("<span class= 'result_font1'>" +"SSR:"+ "</span>" + Number(ssr).toLocaleString() + "<br>\n"); 
-			$('.result_form__3').append("<span class= 'result_font2'>" +"SR:"+ "</span>" + Number(sr).toLocaleString() + "<br>\n"); 
-			$('.result_form__3').append("<span class= 'result_font3'>" +"R:"+ "</span>" + Number(r).toLocaleString()+ "<br>\n"); 
-			$('.result_form__3').append("欲しい"+"<span class= 'result_font1'>" +"SSR:"+ "</span>" + Number(picup_ssr).toLocaleString() + "<br>\n"); 
-			$('.result_form__3').append("欲しい"+"<span class= 'result_font2'>" +"SR:"+ "</span>" + Number(picup_sr).toLocaleString() + "<br>\n"); 
-			$('.result_form__3').append("欲しい"+"<span class= 'result_font3'>" +"R:"+ "</span>" + Number(picup_r).toLocaleString() + "<br>\n"); 
+			append_count("SSR", ssr);
+			append_count("SR", sr);
+			append_count("R", r);
+			append("SSR", picup_ssr);
+			append("SR", picup_sr);
+			append("R", picup_r);
 			$('.result_form__3').append(Number(val).toLocaleString() + "円課金して"+ "</span>" + money + "回引きました" + "<br>\n");
 				if(picup_ssr + picup_sr + picup_r == 0) {
 					$('.result_form__3').append("あなたの欲しいキャラは出ませんでした" +  "<br>\n" + "もう一度挑戦しよう!!")
