@@ -7,9 +7,15 @@ $(function result(){
   val1 = Number(val1); 
   val2 = Number(val2);
   val3 = Number(val3);
-      ssr = 0
-      sr = 0
-      r = 0
+  ssr = 0
+  sr = 0
+  r = 0
+  function append_count(rarity, count){
+    return $('.result_form__2').append(`<span class= 'result_font_${rarity}'>`+`${rarity}`+ "</span>" + ":" + (count) + "<br>\n"); 
+  }
+  function append(rarity, probability){
+    return $('.result_form__2').append(`<span class= 'result_font_${rarity}'>`+`${rarity}`+ "</span>"+ ":" + (probability) + "%<br>\n"); 
+  }
     for (let time = 0; time < val; time++) {
       rarity = (Math.random()*100).toFixed(1);  //1~100の範囲でランダムに数字を取得
         if (rarity <= val1){                     
@@ -22,26 +28,15 @@ $(function result(){
     }
     $('.result_form__2').append("result"+"<br>\n");
     //ガチャ結果の表示
-    $('.result_form__2').append("<span class= 'result_font1'>" + "SSR"+ "</span>"+":"+ Number(ssr).toLocaleString() +"<br>\n"); 
-    $('.result_form__2').append("<span class= 'result_font2'>" + "SR"+ "</span>"+":" + Number(sr).toLocaleString() + "<br>\n"); 
-    $('.result_form__2').append("<span class= 'result_font3'>" + "R"+ "</span>"+":" + Number(r).toLocaleString()+ "<br>\n"); 
-
+    append_count("SSR", ssr);
+    append_count("SR", sr);
+    append_count("R", r);
     $('.result_form__2').append("確率" + "<br>\n"); 
     //ガチャ結果の確率の計算
     SSR = ((ssr / val) * 100).toFixed(1);
     SR =  ((sr / val) * 100).toFixed(1);
     R =   ((r / val) * 100).toFixed(1);
-  if(val <= 0){
-    //ガチャ結果の確率の表示
-    $('.result_form__2').append("SSR:" + SSR + "%<br>\n"); 
-    $('.result_form__2').append("SR:" + SR + "%<br>\n"); 
-    $('.result_form__2').append("R:" + R + "%<br>\n"); 
-
-  }else{
-    $('.result_form__2').append("入力エラー"+ "<br>\n"+"あなたの入力した内容に誤りがあります"+ "<br>\n"+"0より大きい値を入力してください");
-  }
-    $('.result_form__2').append("<span class= 'result_font1'>" + "SSR" + "</span>"+":"+ SSR + "%<br>\n"); 
-    $('.result_form__2').append("<span class= 'result_font2'>" + "SR" + "</span>"+":"+ SR + "%<br>\n"); 
-    $('.result_form__2').append("<span class= 'result_font3'>" + "R" + "</span>"+":"+ R + "%<br>\n"); 
-
+    append("SSR", SSR);
+    append("SR", SR);
+    append("R", R);
   })
