@@ -42,15 +42,19 @@
     過去の情報一覧(最新５件)
     .gacha_main__select
       -if @selects.present?
-        %table{:border => "5",class:"select"}
+        %table{border: "5" ,class:"select"}
           %tr{bgcolor:"#40E0D0"}
-            %th SSR
+            %th 
+              .ssr
+                SSR
             %th SR
             %th R
             %th 欲しいSSR
             %th 欲しいSR
             %th 欲しいR
-            %th 金額
+            %th 
+              .price
+                金額
             %th 
           -@selects.each do |select|
             %tr

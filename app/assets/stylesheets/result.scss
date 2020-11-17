@@ -4,6 +4,7 @@ body {
   min-height: 100vh;
   height: 100%;
   background-image: url("haikei.jpg");
+  min-width: 1200px;
 }
 .result{
   position: absolute;
@@ -15,11 +16,13 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    z-index: 9;
   }
 }
 @keyframes fadeOut {
   0% {
     opacity: 1;
+    z-index: 5;
   }
   100% {
     opacity: 0;
@@ -34,7 +37,8 @@ body {
   background: rgba(0,0,0,0.6);
   width: 100vw;
   height: 100vh;
-  min-width: 900px;
+  min-width: 800px;
+  position: relative;
   &__header{
     height: 80px;
     padding: 0 20px 0 20px;
@@ -74,6 +78,7 @@ body {
     margin-top: auto;
     margin-bottom: auto;
     line-height: 45px;
+    min-width: 1000px;
     .result_font_SSR{
       font-family: 'Goldman', cursive;
       text-transform: uppercase;
@@ -106,13 +111,21 @@ body {
       background: repeating-linear-gradient(0deg, #757575 0.1em, #9E9E9E 0.2em, #E8E8E8 0.3em, #9E9E9E 0.4em, #757575 0.5em); 
       -webkit-background-clip: text;
       font-size: 45px;
+      animation: glow1 .8s infinite alternate;
     }
+    
+      @keyframes glow1 {
+        to {
+            text-shadow: 0 0 10px rgba(235, 223, 223, 0.5);
+        }
+      }
   }
   &__3{
     color: white;
     text-align: center; 
     font-size: 35px;
     line-height: 45px;
+    min-width: 1000px;
     .result_font_SSR{
       font-family: 'Goldman', cursive;
       text-transform: uppercase;
@@ -160,6 +173,7 @@ body {
     text-align: center; 
     font-size: 35px;
     line-height: 45px;
+    min-width: 1000px;
     .result_font_SSR{
       font-family: 'Goldman', cursive;
       text-transform: uppercase;

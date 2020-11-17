@@ -4,6 +4,9 @@
   bottom: 0;
   width: 100%;
   text-align: center;
+  z-index: 1;
+  min-width: 1000px;
+  min-height: 1px;
 }
 .result_form__footer{
   font-size: 25px;
@@ -11,4 +14,7 @@
   bottom: 0;
   width: 100%;
   text-align: center;
+  z-index: 1;
+  min-width: 1000px;
+  min-height: 1px;
 }
