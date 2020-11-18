@@ -44,18 +44,17 @@
       -if @selects.present?
         %table{border: "5" ,class:"select"}
           %tr{bgcolor:"#40E0D0"}
-            %th 
-              .ssr
-                SSR
+            %th.ssr
+              SSR
             %th SR
             %th R
             %th 欲しいSSR
             %th 欲しいSR
             %th 欲しいR
-            %th 
-              .price
-                金額
-            %th 
+            %th.price
+              金額
+            %th.select
+              
           -@selects.each do |select|
             %tr
               %td 
@@ -79,7 +78,7 @@
               %td     
                 =select.price
                 円
-              %td
+              %td.select
                 =link_to "選択", edit_gacha_path(select.id), class:"btn-select"
       -else
         過去に登録された情報はありません

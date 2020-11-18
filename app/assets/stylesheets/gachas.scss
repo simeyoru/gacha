@@ -32,6 +32,7 @@ body {
     margin: auto;
     font-size: 30px;
     width: 990px;
+    margin-bottom:35px;
   }
   &__underline{
     border-bottom: solid 4px red;
@@ -53,6 +54,10 @@ body {
     .rate{
       width: 80px;
     }
+    .rate_2{
+      width: 80px;
+      margin-left: 20px;;
+    }
     .send-rate-btn{
       text-align: center;
       margin-top: 10px;
@@ -67,6 +72,7 @@ body {
       font-size: 30px;
       width:  930px;
       height: 360px;
+      margin: auto;
       .rate{
         width: 80px;
       }
@@ -81,10 +87,9 @@ body {
         height: auto;
         background-color: #40E0D0;
         text-decoration: none;
-        color: white;
         margin: auto;
-        padding: 5px;
         color: black;
+        padding: 0 5px;
       }
       .btn-select:hover{
         opacity: 0.9;
@@ -94,10 +99,12 @@ body {
       }
     } 
     a.btn-link{
-      padding: 5px;
+      display: inline-block;
+      padding: 0 10px;
       background-color: #40E0D0;
       text-decoration: none;
       color: black;
+      margin-top: 10px;
     }
     &__button{
       margin: auto;
@@ -191,7 +198,12 @@ body {
       opacity: 0.5;
     }
     .rate{
-      width: 80px;
+      width: 100px;
+      text-align: center;
+    }
+    .rate_price{
+      width: 150px;
+      text-align: center;
     }
     .send-rate-btn{
       text-align: center;
@@ -278,9 +290,34 @@ table.select{
   background-color: gray;
   outline: 0;
 }
-.price{
-  width: 101px;
+th,td{
+  text-align: center;
+  width: 122px;
+  font-size: 24px;
 }
-.ssr{
-  width: 113px;
+th.select {
+  width:40px;
+}
+th{
+  color: black;
+  padding: 4px 0;
+}
+td.select{
+  width: 60px;
+}
+.Contents__btn{
+  text-decoration: none;
+  color: black;
+  border: none; 
+  padding: 0 3px; 
+  margin-top:-2px; 
+  margin-bottom: -2px; 
+  font-size: 30px;
+  outline: 0;
+  :hover{
+    opacity: 0.5;
+  }
+}
+.form_special_1{
+  margin-left: -43px;
 }

@@ -26,7 +26,7 @@
       <br><br>
       %p 引くガチャ1回の金額を入力してください
       金額:
-      =f.number_field :price, class:'rate', required: true, placeholder: "0"
+      =f.number_field :price, class:'rate_price', required: true, placeholder: "0"
       円
       <br>
       = link_to "過去の情報を取得", gacha_path(current_user), class:"select-btn"

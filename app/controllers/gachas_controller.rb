@@ -1,6 +1,6 @@
 class GachasController < ApplicationController
   before_action :form_params, only:[:show, :edit, :update, :form, :new, :result]
-
+  # before_action :probability_params, only:[:result]
   def index
   end
 
@@ -49,8 +49,8 @@ class GachasController < ApplicationController
     elsif @rarity.picup_ssr < 0 || @rarity.picup_sr< 0 || @rarity.picup_r< 0 
       flash.now[:alert] = "欲しいキャラの確率を0より小さくしないでください"
       render :new 
-    elsif @rarity.price >= 1000
-      flash.now[:alert] = "回すガチャの金額1000よりも小さい値を入力してください"
+    elsif @rarity.price >= 100000
+      flash.now[:alert] = "回すガチャの金額100,000よりも小さい値を入力してください"
       render :new 
     elsif (@rarity.ssr + @rarity.sr + @rarity.r).round(3) != 100
       flash.now[:alert] = "回すガチャの排出率の合計を100にしてください"
@@ -71,6 +71,9 @@ class GachasController < ApplicationController
   end
 
   def result
+    if @form == 4
+      probability_params()
+    end
     @rarity = Rarity.order(updated_at: :desc).find_by(user_id:current_user)
     if @form == 1
       if params[:times].to_i <= 0
@@ -99,7 +102,7 @@ class GachasController < ApplicationController
         format.html
         format.json
       end
-    else
+    elsif @form == 1 || @form == 2
       @val = params.require(:times)
       respond_to do |format|
         format.html
@@ -126,5 +129,40 @@ class GachasController < ApplicationController
 
   def form_params
     @form = params['id'].to_i
+  end
+
+  def probability_params
+    i = 0
+    @count = []
+    @count_times = []
+    probability_next = []
+    params[:times].length.times do |times|
+      @count.push(0)
+    end
+    params[:times].length.times do |times|
+      @count_times.push(0)
+    end
+    @probability = 0
+    params[:probability].length.times do |times|
+      @probability += (params[:probability][i].to_i)
+      probability_next.push(@probability)
+      i += 1
+    end
+    j = 0
+    params[:times].each do |times|
+      i = 0
+      while @count[i] != params[:times][i].to_i do
+        probability = BigDecimal((rand(0.0..100.0)).to_s).ceil(1).to_f
+        probability_next.length.times do
+          if probability <= probability_next[i]
+            @count[i] += 1
+            break
+          end
+          i += 1
+        end
+        @count_times[j] += 1
+      end
+      j += 1
+    end
   end
 end
