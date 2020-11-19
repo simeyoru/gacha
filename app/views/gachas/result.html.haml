@@ -39,4 +39,12 @@
     .result_form__4
     .result_form__footer
       =render "footer"
+  -elsif @result_form == 4
+    .result_form__1
+    .result_form__4
+      =@count
+      =@count_times
+      =@times.map!(&:to_i)
+    .result_form__footer
+      =render "footer"
 

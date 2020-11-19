@@ -44,7 +44,6 @@ $(function charges(){
 				}else if((rarity <= (val1 + val2 + val3))){		//r
 					r = r + 1
 					if (rarity <= (val1 + val2 + val6)) {
-						console.log(rarity)
 						picup_r += 1
 					}
 				}
@@ -54,11 +53,20 @@ $(function charges(){
 			append_count("SSR", ssr);
 			append_count("SR", sr);
 			append_count("R", r);
-			append("SSR", picup_ssr);
-			append("SR", picup_sr);
-			append("R", picup_r);
+			if (val4 != 0){
+				append("SSR", picup_ssr);
+			}
+			if (val5 != 0){
+				append("SR", picup_sr);
+			}
+			if (val6 != 0){
+				append("R", picup_r);
+			}
 			$('.result_form__3').append(Number(val).toLocaleString() + "円課金して"+ "</span>" + money + "回引きました" + "<br>\n");
-				if(picup_ssr + picup_sr + picup_r == 0) {
+				if (val4 == 0 && val5 == 0 && val6 == 0) {
+					$('.result_form__3').append("欲しいキャラの確率を設定すると"+"<br>\n"+"何体欲しいキャラが当たったか分かるようになるぞ！")
+				}
+				else if(picup_ssr + picup_sr + picup_r == 0) {
 					$('.result_form__3').append("あなたの欲しいキャラは出ませんでした" +  "<br>\n" + "もう一度挑戦しよう!!")
 				}else{
 					$('.result_form__3').append("あなたが欲しいキャラは合計で" + Number(picup_ssr + picup_sr + picup_r).toLocaleString() + "体出ました!!"); 

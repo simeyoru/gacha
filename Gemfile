@@ -33,6 +33,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -59,6 +60,7 @@ gem 'haml-rails'
 gem 'jquery-rails'
 gem 'devise'
 gem 'gon'
+gem 'font-awesome-sass'
 group :production do
   gem 'rails_12factor'
 end

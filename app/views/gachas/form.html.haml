@@ -1,19 +1,21 @@
 .gacha_main
   =render "header"
-  .gacha_main__form
-    -if @form == 1
+  -if @form == 1
+    .gacha_main__form
       =form_with(url: result_path(1), class: "Form", id: "form", local: true) do |f|
         %p 回したい数を入力してください
         =f.number_field :time, id: "time", class: 'text',name: "times", step:"1", max:"10000000", onsubmit:"result();",placeholder:"回数",required: true
         回
         =f.submit'ガチャる', class:'send-btn'
-    -elsif @form == 2
+  -elsif @form == 2
+    .gacha_main__form
       =form_with(url: result_path(2), class: "Form", id: "form", local: true) do |f|
         %p ガチャに使用する金額を入力してください
         =f.number_field :time, id: "time", class: 'text',name: "times",max:"10000000", onsubmit:"charges();",placeholder:"金額",required: true
         円
         =f.submit'ガチャる', class:'send-btn'
-    -else 
+  -elsif @form == 3
+    .gacha_main__form
       =form_with(url: result_path(3), class: "Form", id: "form", local: true) do |f|
         %p 欲しいキャラの数を入力してください
         SSR:
@@ -35,17 +37,38 @@
           =f.number_field :r ,class:'rate',name: "times2",max:"1000", step:"1", required: true, placeholder: "0", onsubmit:"times();"
         体
         =f.submit'ガチャる', class:'send-btn'
+  -else
+    .gacha_main__form_special
+      =form_with(url: result_path(4), class: "Form", id: "form", local: true) do |f|
+        %p 下記の情報を入力してください
+        .form_special_1
+          %button{type: "button",class:'Contents__btn', id:"addForm"}
+            = icon('far', 'plus-square')
+          1体目  欲しい数:
+          =f.number_field :time ,name: "times[]",class: "rate", max:"1000",onsubmit:"special();",placeholder:"0",required: true
+          体
+          確率:
+          =f.number_field :time1,name: "probability[]",class: "rate", max:"1000",onsubmit:"special();",placeholder:"0",required: true
+          \%</br>
+        .form_special_4
+
+        .form_special_5
+          =f.submit'ガチャる', class:'send-btn'
+        
     %input.SSR{:type=>"hidden" , :name=>"SSR", :value=>@rarity.ssr}
     %input.SR{:type=>"hidden" , :name=>"data2", :value=>@rarity.sr}
     %input.R{:type=>"hidden" , :name=>"data3", :value=>@rarity.r}
     %input.picup_ssr{:type=>"hidden" , :name=>"data4", :value=>@rarity.picup_ssr}
     %input.picup_sr{:type=>"hidden" , :name=>"data5", :value=>@rarity.picup_sr}
     %input.picup_r{:type=>"hidden" , :name=>"data6", :value=>@rarity.picup_r}
+    %input.arr_json{:name => "arr_json", :type => "hidden", :value => "@arr_json"}
+
+
   .gacha_main__rate
     -if @form == 3
       %button{type: "button",class:'btn btn--orange btn--radius',onclick:'pic()'}
         欲しいキャラの割合<br>
-    -else
+    -elsif @form == 1 || @form == 2
       %button{type: "button",class:'btn btn--orange btn--radius',onclick:'rate()'}
         提供割合<br>
   .gacha_main__footer
