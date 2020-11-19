@@ -1,6 +1,5 @@
 class GachasController < ApplicationController
   before_action :form_params, only:[:show, :edit, :update, :form, :new, :result]
-  # before_action :probability_params, only:[:result]
   def index
   end
 
@@ -133,12 +132,18 @@ class GachasController < ApplicationController
 
   def probability_params
     i = 0
+    # @want = []
     @count = []                 #当たった数の配列
     @count_times = 0
     probability_next = []       #確率の配列
     params[:times].length.times do |times|
       @count.push(0)
     end
+    # @want_count = 0
+    # params[:times].length.times do |times|
+    #   @want_count += 1
+    #   @want.push(@want_count)
+    # end
     @probability = 0
     params[:probability].length.times do |times|
       @probability += (params[:probability][i].to_i)
