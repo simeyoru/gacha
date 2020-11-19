@@ -38,7 +38,8 @@ body {
   width: 100vw;
   height: 100vh;
   min-width: 800px;
-  position: relative;
+  position: fixed;
+  overflow: auto;
   &__header{
     height: 80px;
     padding: 0 20px 0 20px;
@@ -214,6 +215,33 @@ body {
         to {
             text-shadow: 0 0 10px rgba(235, 223, 223, 0.5);
         }
+    }
+  }
+  &__5{
+    color: white;
+    text-align: center; 
+    font-size: 35px;
+    line-height: 45px;
+    min-width: 1000px;
+    font-family: 'Goldman', cursive;
+    .result_font_SSR{
+      font-family: 'Goldman', cursive;
+      text-transform: uppercase;
+      background: linear-gradient(to right, #f00 0%, #f80 14.28%, #dd0 28.56%, #0d0 42.85%, #0dd 57.14%, #00f 71.42%, #e0e 85.71%, #f00 100%) 0% center / 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: example 4s linear infinite;
+      font-size: 45px;
+    }
+    .result_font_SR{
+      font-family: 'Goldman', cursive;
+      color: transparent;
+      background: repeating-linear-gradient(0deg, #B67B03 0.1em, #DAAF08 0.2em, #FEE9A0 0.3em, #DAAF08 0.4em, #B67B03 0.5em); 
+      -webkit-background-clip: text;
+      font-size: 45px;
+    }
+    .font-large{
+      font-size: 45px;
     }
   }
 }

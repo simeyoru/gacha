@@ -40,7 +40,7 @@
   -else
     .gacha_main__form_special
       =form_with(url: result_path(4), class: "Form", id: "form", local: true) do |f|
-        %p 下記の情報を入力してください
+        %p 欲しいキャラが何体かと確率を入力してください
         .form_special_1
           %button{type: "button",class:'Contents__btn', id:"addForm"}
             = icon('far', 'plus-square')
@@ -55,13 +55,13 @@
         .form_special_5
           =f.submit'ガチャる', class:'send-btn'
         
-    %input.SSR{:type=>"hidden" , :name=>"SSR", :value=>@rarity.ssr}
-    %input.SR{:type=>"hidden" , :name=>"data2", :value=>@rarity.sr}
-    %input.R{:type=>"hidden" , :name=>"data3", :value=>@rarity.r}
-    %input.picup_ssr{:type=>"hidden" , :name=>"data4", :value=>@rarity.picup_ssr}
-    %input.picup_sr{:type=>"hidden" , :name=>"data5", :value=>@rarity.picup_sr}
-    %input.picup_r{:type=>"hidden" , :name=>"data6", :value=>@rarity.picup_r}
-    %input.arr_json{:name => "arr_json", :type => "hidden", :value => "@arr_json"}
+  %input.SSR{:type=>"hidden" , :name=>"SSR", :value=>@rarity.ssr}
+  %input.SR{:type=>"hidden" , :name=>"data2", :value=>@rarity.sr}
+  %input.R{:type=>"hidden" , :name=>"data3", :value=>@rarity.r}
+  %input.picup_ssr{:type=>"hidden" , :name=>"data4", :value=>@rarity.picup_ssr}
+  %input.picup_sr{:type=>"hidden" , :name=>"data5", :value=>@rarity.picup_sr}
+  %input.picup_r{:type=>"hidden" , :name=>"data6", :value=>@rarity.picup_r}
+  %input.arr_json{:name => "arr_json", :type => "hidden", :value => "@arr_json"}
 
 
   .gacha_main__rate
