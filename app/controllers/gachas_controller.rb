@@ -133,14 +133,11 @@ class GachasController < ApplicationController
 
   def probability_params
     i = 0
-    @count = []
-    @count_times = []
-    probability_next = []
+    @count = []                 #当たった数の配列
+    @count_times = 0
+    probability_next = []       #確率の配列
     params[:times].length.times do |times|
       @count.push(0)
-    end
-    params[:times].length.times do |times|
-      @count_times.push(0)
     end
     @probability = 0
     params[:probability].length.times do |times|
@@ -148,21 +145,28 @@ class GachasController < ApplicationController
       probability_next.push(@probability)
       i += 1
     end
-    j = 0
-    params[:times].each do |times|
+    if probability_next.last > 100
+      redirect_to form_path ,alert:"確率の合計が100を超えています。"
+    else
+      @times = params[:times]
+      judge = true
       i = 0
-      while @count[i] != params[:times][i].to_i do
+      while judge do
         probability = BigDecimal((rand(0.0..100.0)).to_s).ceil(1).to_f
-        probability_next.length.times do
-          if probability <= probability_next[i]
-            @count[i] += 1
+        @count_times += 1
+        probability_next.each_with_index do|probability1, j|
+          if probability <= probability_next[j]
+            @count[j] += 1
             break
           end
-          i += 1
         end
-        @count_times[j] += 1
+        judge = false
+        @times.each_with_index do |times, k|
+          if @times[k].to_i > @count[k]
+            judge = true
+          end
+        end
       end
-      j += 1
     end
   end
 end
