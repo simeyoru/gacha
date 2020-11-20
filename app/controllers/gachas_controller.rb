@@ -1,5 +1,6 @@
 class GachasController < ApplicationController
   before_action :form_params, only:[:show, :edit, :update, :form, :new, :result]
+  before_action :find_params, only:[:edit, :update]
   def index
   end
 
@@ -9,13 +10,11 @@ class GachasController < ApplicationController
   end
 
   def edit
-    @rarity = Rarity.find(params[:id])
     @selects = Rarity.find(@rarity.id)
   end
 
   def update
     @selects = Rarity.order(updated_at: :desc).where(user_id:current_user).limit(5)
-    @rarity = Rarity.find(params[:id])
     @rarity.touch
     redirect_to root_path, notice: 'ガチャ情報を変更しました'
   end
@@ -42,27 +41,21 @@ class GachasController < ApplicationController
     if @rarity.price <= 0
       flash.now[:alert] = "回すガチャの金額は0よりも大きい値を入力してください"
       render :new 
-    elsif @rarity.ssr < 0 || @rarity.sr< 0 || @rarity.r< 0 
-      flash.now[:alert] = "排出率を0より小さくしないでください"
+    elsif @rarity.ssr < 0 || @rarity.sr < 0 || @rarity.r < 0 
+      flash.now[:alert] = "排出率を0%より小さくしないでください"
       render :new 
-    elsif @rarity.picup_ssr < 0 || @rarity.picup_sr< 0 || @rarity.picup_r< 0 
-      flash.now[:alert] = "欲しいキャラの確率を0より小さくしないでください"
+    elsif @rarity.picup_ssr < 0 || @rarity.picup_sr < 0 || @rarity.picup_r < 0 
+      flash.now[:alert] = "欲しいキャラの確率を0%より小さくしないでください"
       render :new 
     elsif @rarity.price >= 100000
-      flash.now[:alert] = "回すガチャの金額100,000よりも小さい値を入力してください"
+      flash.now[:alert] = "回すガチャの金額100,000円よりも小さい値を入力してください"
       render :new 
     elsif (@rarity.ssr + @rarity.sr + @rarity.r).round(3) != 100
-      flash.now[:alert] = "回すガチャの排出率の合計を100にしてください"
+      flash.now[:alert] = "回すガチャの排出率の合計値を100%にしてください"
       render :new
-    elsif @rarity.ssr < @rarity.picup_ssr 
+    elsif @rarity.ssr < @rarity.picup_ssr || @rarity.sr < @rarity.picup_sr || @rarity.r < @rarity.picup_r
       flash.now[:alert] = "欲しいキャラの排出率が回すガチャより大きいです"
       render :new 
-    elsif @rarity.sr < @rarity.picup_sr
-      flash.now[:alert] = "欲しいキャラの排出率が回すガチャより大きいです"
-      render :new
-    elsif @rarity.r < @rarity.picup_r
-      flash.now[:alert] = "欲しいキャラの排出率が回すガチャより大きいです"
-      render :new
     else
       @rarity.save
       redirect_to root_path, notice: 'ガチャ情報が保存されました'
@@ -76,20 +69,20 @@ class GachasController < ApplicationController
     @rarity = Rarity.order(updated_at: :desc).find_by(user_id:current_user)
     if @form == 1
       if params[:times].to_i <= 0
-        flash.now[:alert] ="0以下の値を入力しないでください"
+        flash.now[:alert] ="0回以下の値を入力しないでください"
         return render :form
       end
     elsif @form == 2
       if params[:times].to_i < @rarity.price
-        flash.now[:alert] ="#{@rarity.price}より小さい値を入力しないでください"
+        flash.now[:alert] ="設定金額（#{@rarity.price}円）以上の値でないとガチャを回せません"
         return render :form
       end
     elsif @form == 3
       if params[:times].to_i == 0 && params[:times1].to_i == 0 && params[:times2].to_i== 0
-        flash.now[:alert] ="欲しいキャラクターの割合を全て０にしないでください"
+        flash.now[:alert] ="欲しいキャラクターの割合を全て0%にしないでください"
         return render :form
       elsif params[:times].to_i < 0 || params[:times1].to_i < 0 || params[:times2].to_i < 0
-        flash.now[:alert] = "0未満の値を入力しないでください"
+        flash.now[:alert] = "0%未満の値を入力しないでください"
         return render :form
       end
     end
@@ -130,20 +123,18 @@ class GachasController < ApplicationController
     @form = params['id'].to_i
   end
 
+  def find_params
+    @rarity = Rarity.find(params[:id])
+  end
+
   def probability_params
     i = 0
-    # @want = []
     @count = []                 #当たった数の配列
     @count_times = 0
     probability_next = []       #確率の配列
     params[:times].length.times do |times|
       @count.push(0)
     end
-    # @want_count = 0
-    # params[:times].length.times do |times|
-    #   @want_count += 1
-    #   @want.push(@want_count)
-    # end
     @probability = 0
     params[:probability].length.times do |times|
       @probability += (params[:probability][i].to_i)
@@ -151,7 +142,7 @@ class GachasController < ApplicationController
       i += 1
     end
     if probability_next.last > 100
-      redirect_to form_path ,alert:"確率の合計が100を超えています。"
+      redirect_to form_path ,alert:"確率の合計が100%を超えています。"
     else
       @times = params[:times]
       judge = true

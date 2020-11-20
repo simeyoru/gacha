@@ -1,6 +1,5 @@
 .result_form
   .result
-    = image_tag("result2.jpg", class:"image")
   =render "header"
   -if @result_form == 1
     .result_form__1
@@ -40,7 +39,6 @@
     .result_form__footer
       =render "footer"
   -elsif @result_form == 4
-    .result_form__1
     .result_form__5
       %span.result_font_SSR
         =@count_times
@@ -55,4 +53,6 @@
 
     .result_form__footer
       =render "footer"
+.result_form_image
+  = image_tag("result2.jpg", class:"image")
 
