@@ -20,7 +20,7 @@ body {
   &__aaa{
     display: flex;
     margin-top: 40px;
-    justify-content: flex-end;
+    justify-content: center;
     height: 600px;
     margin-bottom: 50px;
   }
@@ -39,7 +39,7 @@ body {
     text-align: center;
     font-size: 22px;
     width:250px;
-    margin: 0 25px;
+    margin-left :2%;
     .ssr{
       @include index_ssr();
     }
