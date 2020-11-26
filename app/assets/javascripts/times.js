@@ -33,7 +33,7 @@ $(function times(){
     function append(rarity, count){
       return $('.result_form__4').append("欲しい" + `<span class= 'result_font_${rarity}'>`+`${rarity}`+ "</span>"+ ":" + Number(count).toLocaleString() + "<br>\n"); 
     }
-    for (let time = 0; time < 1000000; time++) {
+    for (let time = 0; time < 10000000; time++) {
       if (val4 == 0 && val5 == 0 && val6 == 0){
         break;
       }

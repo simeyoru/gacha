@@ -1,7 +1,8 @@
 class GachasController < ApplicationController
-  before_action :form_params, only:[:show, :edit, :update, :form, :new, :result]
+  before_action :form_params, only:[:index, :show, :edit, :update, :form, :new, :result]
   before_action :find_params, only:[:edit, :update]
   def index
+    @rarity = Rarity.order(updated_at: :desc).where(user_id:current_user).limit(1)
   end
 
   def show
@@ -137,18 +138,20 @@ class GachasController < ApplicationController
     end
     @probability = 0
     params[:probability].length.times do |times|
-      @probability += (params[:probability][i].to_i)
+      @probability += (params[:probability][i].to_f)
       probability_next.push(@probability)
       i += 1
     end
     if probability_next.last > 100
       redirect_to form_path ,alert:"確率の合計が100%を超えています。"
+    elsif params[:times][1].to_i < 0
+      redirect_to form_path ,alert:"0以下の値を入力しないでください"
     else
       @times = params[:times]
       judge = true
       i = 0
       while judge do
-        probability = BigDecimal((rand(0.0..100.0)).to_s).ceil(1).to_f
+        probability = BigDecimal((rand(0.0..100.0)).to_s).to_f
         @count_times += 1
         probability_next.each_with_index do|probability1, j|
           if probability <= probability_next[j]

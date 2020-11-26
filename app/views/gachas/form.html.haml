@@ -40,15 +40,17 @@
   -else
     .gacha_main__form_special
       =form_with(url: result_path(4), class: "Form", id: "form", local: true) do |f|
-        %p 欲しいキャラが何体かとその確率を入力してください
+        %div.content 欲しいキャラが何体かとその確率を入力してください
         .form_special_1
+          %button{type: "button",class:'Contents__btn', id:"existForm"}
+            = icon('far', 'minus-square')
           %button{type: "button",class:'Contents__btn', id:"addForm"}
             = icon('far', 'plus-square')
           1体目  欲しい数:
           =f.number_field :time ,name: "times[]",class: "rate", max:"1000",onsubmit:"special();",placeholder:"0",required: true
           体
           確率:
-          =f.number_field :time1,name: "probability[]",class: "rate", max:"1000",onsubmit:"special();",placeholder:"0",required: true
+          =f.number_field :time1,name: "probability[]",class: "rate", max:"1000",onsubmit:"special();",placeholder:"0",required: true, step:"0.0001"
           \%</br>
         .form_special_4
 
