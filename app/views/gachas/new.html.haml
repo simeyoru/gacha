@@ -3,7 +3,7 @@
   .gacha_main__form_rate
     =form_with(url: gachas_path, model: @rarity, class: "Form", id: "form", local: true) do |f|
       %p 回すガチャの排出率を入力してください
-      (例：SSR : 6%  SR : 24%  R : 70%)</br>
+      %p.example (例：SSR : 6%  SR : 24%  R : 70%)</br>
       SSR:
       =f.number_field :ssr ,class:'rate', step:"0.1", required: true, placeholder: "0"
       \%
@@ -15,7 +15,7 @@
       \%
       <br><br>
       %p 欲しいキャラ1体あたりの排出率を入力してください
-      (例：SSR : 2%  SR : 3%  R : 10%)</br>
+      %p.example (例：SSR : 2%  SR : 3%  R : 10%)</br>
       SSR:
       =f.number_field :picup_ssr,class:'rate', step:"0.0001", required: true, placeholder: "0"
       \%

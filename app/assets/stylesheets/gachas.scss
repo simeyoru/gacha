@@ -293,6 +293,9 @@ body {
     .send-rate-btn{
       text-align: center;
       margin-top: 10px;
+      background-color: #40E0D0;
+      color: white;
+      outline: 0;
     }
   }
   &__rate{
@@ -366,6 +369,9 @@ a.Editlink_index:hover{
   text-align: center;
   width: 100px;
   height: 49px;
+  background-color: #aaa;
+  color: white;
+  outline: 0;
 }
 table.select{
   float:left;
@@ -413,4 +419,8 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 input[type="number"] {
   -moz-appearance:textfield;
+}
+p.example{
+  font-size: 25px;
+  margin-bottom: 10px;
 }
