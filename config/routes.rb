@@ -9,4 +9,9 @@ Rails.application.routes.draw do
   get  "/gachas/form/:id" ,to: "gachas#form",as: "form"
   post  "/gachas/result/:id" ,to: "gachas#result",as: "result"
   get  "/gachas/result/:id" ,to: "gachas#index"
+  
+  get '404', to: 'application#render_404'
+  get '422', to: 'application#render_422'
+  get '500', to: 'application#render_500'
+  
 end

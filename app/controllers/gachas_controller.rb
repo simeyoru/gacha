@@ -1,5 +1,5 @@
 class GachasController < ApplicationController
-  before_action :form_params, only:[:index, :show, :edit, :update, :form, :new, :result]
+  before_action :form_params, only:[:show, :edit, :update, :form, :new, :result]
   before_action :find_params, only:[:edit, :update]
   def index
     @rarity = Rarity.order(updated_at: :desc).where(user_id:current_user).limit(1)

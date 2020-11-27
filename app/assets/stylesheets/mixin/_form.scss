@@ -36,7 +36,7 @@
 
 @mixin index_ssr() {
   text-transform: uppercase;
-  background: linear-gradient(to right, #f00 0%, #f80 14.28%, #dd0 9.56%, #0d0 22.85%, #0dd 37.14%, #00f 41.42%, #e0e 55.71%, #f00 90%) 0% center / 200% auto;
+  background: linear-gradient(to right, #f00 11%, #f80 17%, #dd0 22%, #0d0 24%, #0dd 29%, rgb(0, 47, 255) 34%, #e0e 36%) 0% center / 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 22px;

@@ -1,31 +1,30 @@
+-# %canvas(id="projector")
+-#   Your browser does not support the Canvas element.
 .gacha_main
   = render "header"
   .gacha_main__aaa
     .gacha_main__form_index
       %p ようこそ!ガチャシミュレーションへ
       %p 回すガチャの情報を入力してください
-      = link_to  new_gacha_path,class:"Editlink_index" do
-        情報入力<br>
+      .gacha_main__form_index_information
+        = link_to  new_gacha_path,class:"Editlink_index" do
+          情報入力<br>
       たくさん回したい方は
-      %span.gacha_main__underline①のリンクへ<br>
-      金額に応じて回したい方は
-      %span.gacha_main__underline②のリンクへ<br>
-      何回引けばいいのかを知りたい方は
-      %span.gacha_main__underline③のリンクへ<br>
-      欲しいキャラが多い方は
-      %span.gacha_main__underline④のリンクへ<br>
-      ①
+      %span.gacha_main__underline
       = link_to form_path(1),class:"Editlink_index" do
         気にせずガチャ<br>
-      ②
+      金額に応じて回したい方は
+      %span.gacha_main__underline
       = link_to form_path(2) ,class:"Editlink_index" do
         課金額ガチャ<br>
-      ③
+      何回引けばいいか知りたい方は
+      %span.gacha_main__underline
       = link_to form_path(3) ,class:"Editlink_index" do
-        ガチャの回数知りたいな<br>
-      ④
+        出るまでガチャ<br>
+      欲しいキャラが多い方は
+      %span.gacha_main__underline
       = link_to form_path(4) ,class:"Editlink_index" do
-        キャラを好きな数出すまでガチャ<br>
+        出るまでガチャver.2.0<br>
     .gacha_main__information
       現在の情報</br>
       .gacha_main__probability

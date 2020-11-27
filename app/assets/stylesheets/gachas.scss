@@ -16,13 +16,11 @@ body {
   position: relative;
   height: auto;
   min-height: 100%;
-  // display: flex;
   &__aaa{
     display: flex;
-    margin-top: 40px;
     justify-content: center;
     height: 600px;
-    margin-bottom: 50px;
+    margin-bottom: 35px;
   }
   &__probability{
     padding-top: 15px;
@@ -40,6 +38,7 @@ body {
     font-size: 22px;
     width:250px;
     margin-left :2%;
+    height: 500px;
     .ssr{
       @include index_ssr();
     }
@@ -64,15 +63,14 @@ body {
     }
   }
   &__form_index{
-    margin-bottom:93px;
-    top: 45%;
-    left: 50%;
-    padding: 15px 30px;
+    padding: 0px 30px;
+    padding-top: 8%;
     background: rgba(0,0,0,0.7);
     color: #fff;
     text-align: center;
     font-size: 30px;
     width: 700px;
+    height: 500px;
 
     a.send-btn:hover {
       opacity: 0.5;
@@ -84,6 +82,9 @@ body {
       text-align: center;
       margin-top: 10px;
     }
+  }
+  &__form_index_information{
+    padding-bottom: 20px;
   }
   &__title{
     padding-top: 10px;
@@ -136,7 +137,7 @@ body {
   &__form_special{
     margin: auto;
     margin-top: 180px;
-    background: rgba(0, 0, 0, 0.7);
+   background: rgba(0, 0, 0, 0.7);
     color: #fff;
     text-align: right;
     font-size: 30px;

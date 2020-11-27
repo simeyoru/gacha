@@ -17,23 +17,17 @@
     margin: -200px 0 0 -300px;
     width: 600px;
     height: 400px;
+    z-index: 9999;
   }
-
-  .wrapper {
-    height: 100%;
-    width: 100%;
-    overflow: auto;
-  }
-
+/* 
   div.dialog {
     width: 95%;
     max-width: 33em;
-    margin: 4em auto 0;
-  }
+  } */
 
   div.dialog > div {
     padding: 15px 30px;
-    background-color: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.7);
   }
 
   .error-page h1 {
@@ -74,6 +68,10 @@
 
   a {
     color: whitesmoke;
+    text-decoration: none;
+  }
+  a:hover{
+    opacity: 0.5;
   }
 
   .back {
