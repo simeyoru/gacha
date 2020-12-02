@@ -8,61 +8,75 @@
       %p 回すガチャの情報を入力してください
       .gacha_main__form_index_information
         = link_to  new_gacha_path,class:"Editlink_index" do
-          情報入力<br>
-      たくさん回したい方は
-      %span.gacha_main__underline
-      = link_to form_path(1),class:"Editlink_index" do
-        気にせずガチャ<br>
-      金額に応じて回したい方は
-      %span.gacha_main__underline
-      = link_to form_path(2) ,class:"Editlink_index" do
-        課金額ガチャ<br>
-      何回引けばいいか知りたい方は
-      %span.gacha_main__underline
-      = link_to form_path(3) ,class:"Editlink_index" do
-        出るまでガチャ<br>
-      欲しいキャラが多い方は
-      %span.gacha_main__underline
-      = link_to form_path(4) ,class:"Editlink_index" do
-        出るまでガチャver.2.0<br>
+          情報入力
+      %p
+        たくさん回したい方は
+        %span.gacha_main__underline
+        = link_to form_path(1),class:"Editlink_index" do
+          気にせずガチャ
+      %p
+        金額に応じて回したい方は
+        %span.gacha_main__underline
+        = link_to form_path(2) ,class:"Editlink_index" do
+          課金額ガチャ
+      %p
+        何回引けばいいか知りたい方は
+        %span.gacha_main__underline
+        = link_to form_path(3) ,class:"Editlink_index" do
+          出るまでガチャ
+      %p
+        欲しいキャラが多い方は
+        %span.gacha_main__underline
+        = link_to form_path(4) ,class:"Editlink_index" do
+          出るまでガチャver.2.0
     .gacha_main__information
-      現在の情報</br>
+      %p
+        現在の情報
       .gacha_main__probability
         -@rarity.each do |select|
-          排出率</br>
+          %p
+            排出率
           .ssr
-            SSR:
-            =select.ssr
-            \%</br>
+            %p
+              SSR:
+              =select.ssr
+              \%
           .sr
-            SR:
-            =select.sr
-            \%</br>
+            %p
+              SR:
+              =select.sr
+              \%
           .r
-            R
-            =select.r
-            \%</br>
+            %p
+              R
+              =select.r
+              \%
       .gacha_main__need
         -@rarity.each do |select|
-          欲しいキャラの排出率</br>
+          %P
+            欲しいキャラの排出率
           .ssr
-            SSR:
-            =select.picup_ssr
-            \%</br>
+            %p
+              SSR:
+              =select.picup_ssr
+              \%
           .sr
-            SR:
-            =select.picup_sr
-            \%</br>
+            %p
+              SR:
+              =select.picup_sr
+              \%
           .r
-            R:
-            =select.picup_r  
-            \%  </br>
+            %p
+              R:
+              =select.picup_r  
+              \%
       .gacha_main__price
         -@rarity.each do |select|
-          ガチャ一回あたりの金額</br>
+          %p
+            ガチャ一回あたりの金額
           .price
             =select.price
-            円</br></br>
-        = link_to "過去の情報を取得", gacha_path(current_user), class:"btn"
+            円
+      = link_to "過去の情報を取得", gacha_path(current_user), class:"btn"
   .gacha_main__footer
     =render "footer"

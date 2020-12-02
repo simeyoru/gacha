@@ -27,6 +27,7 @@ body {
   }
   &__price{
     padding-top: 15px;
+    margin-bottom: 15px;
   }
   &__need{
     padding-top: 15px;
@@ -395,6 +396,9 @@ th{
 }
 td.select{
   width: 60px;
+}
+.content{
+  text-align: center;
 }
 .Contents__btn{
   text-decoration: none;

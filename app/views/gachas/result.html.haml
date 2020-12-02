@@ -40,16 +40,18 @@
       =render "footer"
   -elsif @result_form == 4
     .result_form__5
-      %span.result_font_SSR
-        =@count_times
-      回引くと全てのキャラが出ました</br>
+      %p
+        %span.result_font_SSR
+          =@count_times
+        回引くと全てのキャラが出ました
       -@count.each_with_index do|count, i|
-        %span.font-large
-          =i+1
-        体目
-        %span.result_font_SR
-          =@count[i]
-        体出ました</br>
+        %p
+          %span.font-large
+            =i+1
+          体目
+          %span.result_font_SR
+            =@count[i]
+          体出ました
 
     .result_form__footer
       =render "footer"
